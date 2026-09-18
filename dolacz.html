@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- podgląd: usunąć przy starcie produkcji -->
+<title>Rozpocznij z BIFOR — zgłoszenie uruchomienia konta</title>
+<meta name="description" content="Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.">
+<meta name="theme-color" content="#6F5BD8">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Przejdź do formularza</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+    <nav class="nav-links" aria-label="Główna nawigacja">
+      <a href="index.html#jak-dziala">Jak działa</a>
+      <a href="index.html#funkcje">Funkcje</a>
+      <a href="index.html#role">Role</a>
+      <a href="index.html#dla-kogo">Dla kogo</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-end">
+      <a class="btn btn-line btn-sm" href="index.html">Wróć na stronę główną</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Otwórz menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Menu mobilne">
+    <a href="index.html#jak-dziala">Jak działa</a>
+    <a href="index.html#funkcje">Funkcje</a>
+    <a href="index.html#role">Role</a>
+    <a href="index.html#dla-kogo">Dla kogo</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+</header>
+
+<main id="main" class="join">
+  <div class="wrap join-grid">
+
+    <aside class="join-aside">
+      <h1 class="rv">Rozpocznij z&nbsp;BIFOR</h1>
+      <p class="lead rv" style="--d:1">Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.</p>
+      <ol class="next rv" style="--d:2">
+        <li><div>Wypełniasz formularz<small>zajmie około 2 minut</small></div></li>
+        <li><div>Kontaktujemy się z Tobą<small>omawiamy, jak pracujecie przy wydarzeniach</small></div></li>
+        <li><div>Uruchamiamy BIFOR<small>konfiguracja sal, menu, cenników i zasad pracy</small></div></li>
+      </ol>
+      <div class="ph rv" style="--d:3"><img src="assets/img/sala-stoly.jpg" alt="Sala przygotowana do przyjęcia, okrągłe stoły" width="1000" height="667"></div>
+    </aside>
+
+    <div>
+      <form class="form" id="joinForm" novalidate>
+        <!-- antyspam: pole-pułapka i czas wypełniania -->
+        <div class="hp" aria-hidden="true">
+          <label for="company_website">Nie wypełniaj tego pola</label>
+          <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="referrer" id="referrer">
+        <input type="hidden" name="landing_page" id="landing_page">
+
+        <fieldset class="fs">
+          <legend class="fs-h">Dane osoby<small>Z kim mamy się skontaktować?</small></legend>
+          <div class="fs-body">
+            <div class="f"><label for="first_name">Imię <span class="req" aria-hidden="true">*</span></label><input id="first_name" name="first_name" autocomplete="given-name" required maxlength="60"><span class="err" id="first_name-err">Podaj imię.</span></div>
+            <div class="f"><label for="last_name">Nazwisko <span class="req" aria-hidden="true">*</span></label><input id="last_name" name="last_name" autocomplete="family-name" required maxlength="80"><span class="err" id="last_name-err">Podaj nazwisko.</span></div>
+            <div class="f"><label for="email">E-mail <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="anna@twojlokal.pl"><span class="err" id="email-err">Podaj poprawny adres e-mail, np. anna@twojlokal.pl.</span></div>
+            <div class="f"><label for="phone">Telefon <span class="req" aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="500 600 700"><span class="err" id="phone-err">Podaj numer telefonu — co najmniej 9 cyfr.</span></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend class="fs-h">Rola<small>Co najlepiej opisuje Twoją pracę?</small></legend>
+          <div class="fs-body">
+            <div class="f full" id="role-field">
+              <span class="lbl" id="role-lbl">Twoja rola <span class="req" aria-hidden="true">*</span></span>
+              <div class="radios" role="radiogroup" aria-labelledby="role-lbl" aria-required="true">
+                <div class="radio"><input type="radio" name="role" id="r1" value="wlasciciel_obiektu"><label for="r1">Właściciel / właścicielka obiektu</label></div>
+                <div class="radio"><input type="radio" name="role" id="r2" value="manager"><label for="r2">Manager / managerka</label></div>
+                <div class="radio"><input type="radio" name="role" id="r3" value="wedding_planner"><label for="r3">Wedding planner</label></div>
+                <div class="radio"><input type="radio" name="role" id="r4" value="event_manager"><label for="r4">Event manager</label></div>
+                <div class="radio"><input type="radio" name="role" id="r5" value="sprzedaz_organizacja"><label for="r5">Sprzedaż / organizacja wydarzeń</label></div>
+                <div class="radio"><input type="radio" name="role" id="r6" value="agencja_eventowa"><label for="r6">Agencja eventowa</label></div>
+                <div class="radio"><input type="radio" name="role" id="r7" value="uslugodawca"><label for="r7">Usługodawca</label></div>
+                <div class="radio"><input type="radio" name="role" id="r8" value="inne"><label for="r8">Inne</label></div>
+              </div>
+              <span class="err" id="role-err">Wybierz rolę, która najlepiej Cię opisuje.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend class="fs-h">Organizacja<small>Firma lub lokal, w którym uruchomimy BIFOR.</small></legend>
+          <div class="fs-body">
+            <div class="f full"><label for="company">Nazwa firmy / lokalu <span class="req" aria-hidden="true">*</span></label><input id="company" name="company" autocomplete="organization" required maxlength="120"><span class="err" id="company-err">Podaj nazwę firmy lub lokalu.</span></div>
+            <div class="f full"><label for="street">Ulica i numer <span class="req" aria-hidden="true">*</span></label><input id="street" name="street" autocomplete="address-line1" required maxlength="120"><span class="err" id="street-err">Podaj ulicę i numer.</span></div>
+          </div>
+          <div class="fs-body zip">
+            <div class="f"><label for="postal_code">Kod pocztowy <span class="req" aria-hidden="true">*</span></label><input id="postal_code" name="postal_code" autocomplete="postal-code" inputmode="numeric" required maxlength="6" placeholder="00-000"><span class="err" id="postal_code-err">Wpisz kod w formacie 00-000.</span></div>
+            <div class="f"><label for="city">Miasto <span class="req" aria-hidden="true">*</span></label><input id="city" name="city" autocomplete="address-level2" required maxlength="80"><span class="err" id="city-err">Podaj miasto.</span></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend class="fs-h">Dodatkowo<small>Opcjonalnie — pomoże nam lepiej przygotować rozmowę.</small></legend>
+          <div class="fs-body">
+            <div class="f"><label for="website">Strona internetowa <span class="opt">(opcjonalnie)</span></label><input id="website" name="website" autocomplete="url" inputmode="url" maxlength="200" placeholder="twojlokal.pl"><span class="err" id="website-err">Wpisz adres strony, np. twojlokal.pl.</span></div>
+            <div class="f"><label for="social">Instagram / Facebook <span class="opt">(opcjonalnie)</span></label><input id="social" name="social" maxlength="200" placeholder="@twojlokal"></div>
+            <div class="f full"><label for="events_per_year">Liczba organizowanych wydarzeń rocznie <span class="opt">(opcjonalnie)</span></label>
+              <select id="events_per_year" name="events_per_year">
+                <option value="">Wybierz</option>
+                <option value="do_20">do 20</option>
+                <option value="21_50">21–50</option>
+                <option value="51_100">51–100</option>
+                <option value="101_200">101–200</option>
+                <option value="200_plus">powyżej 200</option>
+              </select>
+            </div>
+            <div class="f full"><label for="message">Dodatkowa wiadomość <span class="opt">(opcjonalnie)</span></label><textarea id="message" name="message" maxlength="1000" placeholder="Np. ile macie sal, jakie wydarzenia organizujecie najczęściej, czego dziś najbardziej brakuje."></textarea><span class="hint"><span></span><span id="msgCount">0 / 1000</span></span></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend class="fs-h">Zgody</legend>
+          <div class="fs-body">
+            <div class="f full" id="consent-field">
+              <label class="consent"><input type="checkbox" id="consent_rodo" name="consent_rodo" required aria-describedby="consent_rodo-err"><span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zgłoszenia i kontaktu w sprawie uruchomienia konta BIFOR. Szczegóły w <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span class="req" aria-hidden="true">*</span></span></label>
+              <span class="err" id="consent_rodo-err">Ta zgoda jest potrzebna, abyśmy mogli odpowiedzieć na zgłoszenie.</span>
+            </div>
+            <div class="f full">
+              <label class="consent"><input type="checkbox" id="consent_marketing" name="consent_marketing"><span>Chcę otrzymywać informacje o nowościach i rozwoju BIFOR. Zgodę mogę wycofać w każdej chwili.</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-end">
+          <button class="btn btn-primary" type="submit" id="submitBtn"><span class="spin" aria-hidden="true"></span><span id="submitLbl">Wyślij zgłoszenie</span><svg><use href="#i-arrow"/></svg></button>
+          <p>Pola oznaczone <span style="color:var(--crit)">*</span> są wymagane.</p>
+        </div>
+        <div class="alert" id="formAlert" role="alert" hidden></div>
+      </form>
+
+      <div class="done" id="done" hidden tabindex="-1">
+        <div class="ok"><svg><use href="#i-ok"/></svg></div>
+        <h2>Dziękujemy za zainteresowanie BIFOR.</h2>
+        <p>Otrzymaliśmy Twoje zgłoszenie. Skontaktujemy się z Tobą w sprawie uruchomienia konta i rozpoczęcia współpracy.</p>
+        <div class="cta-row"><a class="btn btn-line" href="index.html">Wróć na stronę główną</a></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+        <p>Wszystkie ustalenia wydarzenia. Jedno miejsce.</p>
+      </div>
+      <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="dolacz.html">Rozpocznij z BIFOR</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Informacje</h4><ul><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="polityka-cookies.html">Polityka cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 BIFOR</span><span>Oprogramowanie do organizacji wydarzeń</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/form.js"></script>
+</body>
+</html>

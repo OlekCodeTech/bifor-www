@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- podgląd: usunąć przy starcie produkcji -->
+<title>BIFOR — wszystkie ustalenia wydarzenia w jednym miejscu</title>
+<meta name="description" content="BIFOR porządkuje cały proces ustaleń dotyczących wydarzenia w jednym miejscu. Organizator, Zamawiający i zaproszone osoby pracują na jednej aktualnej wersji informacji — od pierwszych ustaleń aż do realizacji.">
+<meta property="og:title" content="BIFOR — Wszystkie ustalenia wydarzenia. Jedno miejsce.">
+<meta property="og:description" content="Oprogramowanie, które porządkuje cały proces ustaleń dotyczących wydarzenia — od pierwszych ustaleń do Karty Realizacji.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta name="theme-color" content="#6F5BD8">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- ikony -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+    <symbol id="i-empty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M10 3.5v17M10 11h10.5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-12 7 7-12 5zM14 4l1 2M19 9l2-1M16.5 6.5L20 3"/></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 18M19 3L5 21"/><path d="M7.5 3.5L4 7l2.5 2.5L10 6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.6-3 3-4.8 6-4.8s5.4 1.8 6 4.8M16 5.6a3 3 0 010 5.8M17.5 14.9c1.8.6 3 2.2 3.4 4.6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17M5 20.5V9l7-5 7 5v11.5M10 20.5v-5h4v5"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M8 17c.6-1.8 2.1-2.8 4-2.8s3.4 1 4 2.8"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v8.5h14V12M12 8v12.5M12 8S10.5 3.5 8 4.5 9 8 12 8zm0 0s1.5-4.5 4-3.5S15 8 12 8z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 018 0v3"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0112 0v5l1.5 2h-15zM10 20.5a2 2 0 004 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M3.5 9h17M3.5 14.5h17M9.5 9v11.5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9l-5 4z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h14v17H5zM8.5 8h7M8.5 12h7M8.5 16h4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 2.5l14 10.2-6.3.9 3.8 7.2-2.9 1.5-3.8-7.3L5 19.5z" fill="#1E1A30" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+    <nav class="nav-links" aria-label="Główna nawigacja">
+      <a href="#jak-dziala" data-track="how_it_works_click" data-place="nav">Jak działa</a>
+      <a href="#funkcje">Funkcje</a>
+      <a href="#role">Role</a>
+      <a href="#realizacja">Realizacja</a>
+      <a href="#dla-kogo">Dla kogo</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-end">
+      <a class="btn btn-primary btn-sm" href="dolacz.html" data-track="cta_start_click" data-place="nav">Rozpocznij z BIFOR</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Otwórz menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Menu mobilne">
+    <a href="#jak-dziala" data-track="how_it_works_click" data-place="mobile_nav">Jak działa</a>
+    <a href="#funkcje">Funkcje</a>
+    <a href="#role">Role</a>
+    <a href="#realizacja">Realizacja</a>
+    <a href="#dla-kogo">Dla kogo</a>
+    <a href="#faq">FAQ</a>
+    <a href="dolacz.html" data-track="cta_start_click" data-place="mobile_nav" style="color:var(--brand)">Rozpocznij z BIFOR →</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1>
+        <span class="ln"><span>Wszystkie ustalenia</span></span>
+        <span class="ln"><span>wydarzenia.</span></span>
+        <span class="ln"><span class="muted">Jedno miejsce.</span></span>
+      </h1>
+      <div class="hero-side">
+        <p class="lead">BIFOR porządkuje cały proces organizacji wydarzenia. Manager, Zamawiający i zaproszone osoby pracują na jednej aktualnej wersji informacji — od pierwszych ustaleń aż do realizacji.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="dolacz.html" data-track="cta_start_click" data-place="hero">Rozpocznij z BIFOR <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#jak-dziala" data-track="how_it_works_click" data-place="hero">Zobacz, jak działa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- animacja produktu -->
+    <figure class="film" id="jak-dziala" aria-label="Animacja pokazująca, jak działa BIFOR">
+      <div class="film-frame">
+        <div class="film-vp" id="filmVp">
+          <div class="stage" id="stage" aria-hidden="true">
+
+            <div class="a-bar">
+              <div class="a-logo">bifor<i></i></div>
+              <div class="a-sep"></div>
+              <div class="a-venue">Avocado<span>Sala Główna</span></div>
+              <div class="a-user"><svg class="a-bell"><use href="#i-bell"/></svg> Katarzyna Nowak <span class="a-av">KN</span></div>
+            </div>
+
+            <!-- 1. Utwórz wydarzenie -->
+            <div class="scene" data-scene="0">
+              <div class="a-grid">
+                <aside class="a-side">
+                  <div class="a-lbl">Obiekt</div>
+                  <div class="a-nav"><svg><use href="#i-grid"/></svg>Kokpit</div>
+                  <div class="a-nav"><svg><use href="#i-cal"/></svg>Kalendarz</div>
+                  <div class="a-nav on"><svg><use href="#i-spark"/></svg>Wydarzenia<em>34</em></div>
+                  <div class="a-nav"><svg><use href="#i-fork"/></svg>Oferta i cenniki</div>
+                  <div class="a-nav"><svg><use href="#i-doc"/></svg>Dokumenty</div>
+                </aside>
+                <div class="a-main">
+                  <div class="a-h"><h3>Wydarzenia</h3><span class="sub">sezon 2027</span><span class="a-btn" id="s0open"><svg><use href="#i-plus"/></svg>Nowe wydarzenie</span></div>
+                  <div class="card">
+                    <div class="tbl-row th"><span>Wydarzenie</span><span>Data</span><span>Sala</span><span>Goście</span><span>Status</span></div>
+                    <div class="tbl-row new" id="s0row"><b>Wesele Anny i Michała</b><span>12.06.2027</span><span>Sala Główna</span><span>140</span><em class="st st-new">Nowe</em></div>
+                    <div class="tbl-row"><b>Komunia Zosi</b><span>30.05.2027</span><span>Sala plenerowa</span><span>96</span><em class="st st-warn">W trakcie</em></div>
+                    <div class="tbl-row"><b>Jubileusz 40-lecia firmy Terma</b><span>05.06.2027</span><span>Sala Główna</span><span>180</span><em class="st st-good">Zatwierdzone</em></div>
+                    <div class="tbl-row"><b>Urodziny Pana Jerzego</b><span>06.06.2027</span><span>Sala Kameralna</span><span>42</span><em class="st st-warn">W trakcie</em></div>
+                    <div class="tbl-row"><b>Wesele Kasi i Tomka</b><span>19.06.2027</span><span>Sala Główna</span><span>126</span><em class="st st-good">Zatwierdzone</em></div>
+                    <div class="tbl-row"><b>Konferencja Agro-Tech</b><span>24.06.2027</span><span>Sala plenerowa</span><span>70</span><em class="st st-idle">Wstępne</em></div>
+                  </div>
+                </div>
+              </div>
+              <div class="scrim"></div>
+              <div class="modal">
+                <h4>Nowe wydarzenie</h4>
+                <p class="mh-sub">Podstawowe informacje. Resztę uzupełnicie razem z Zamawiającym.</p>
+                <div class="fld"><span>Nazwa wydarzenia</span><div class="fin" id="f0"><span data-text="Wesele Anny i Michała"></span><i class="caret"></i></div></div>
+                <div class="f2">
+                  <div class="fld"><span>Data</span><div class="fin" id="f1"><svg><use href="#i-cal"/></svg><span data-text="sobota, 12 czerwca 2027"></span><i class="caret"></i></div></div>
+                  <div class="fld"><span>Sala</span><div class="fin" id="f2"><svg><use href="#i-home"/></svg><span data-text="Sala Główna"></span><i class="caret"></i></div></div>
+                </div>
+                <div class="f2">
+                  <div class="fld"><span>Rodzaj</span><div class="fin" id="f3"><span data-text="Wesele"></span><i class="caret"></i></div></div>
+                  <div class="fld"><span>Planowana liczba gości</span><div class="fin" id="f4"><svg><use href="#i-users"/></svg><span data-text="140"></span><i class="caret"></i></div></div>
+                </div>
+                <div class="m-foot"><span class="a-ghost">Anuluj</span><span class="a-btn" id="s0create" style="margin-left:0">Utwórz wydarzenie</span></div>
+              </div>
+            </div>
+
+            <!-- 2. Zaproś Zamawiającego -->
+            <div class="scene" data-scene="1">
+              <div class="ev-head">
+                <div class="ev-crumb">Wydarzenia › Wesele Anny i Michała</div>
+                <div class="ev-title"><h3>Wesele Anny i Michała</h3><em class="st st-new">Nowe</em></div>
+                <div class="chips">
+                  <span class="chip"><svg><use href="#i-cal"/></svg>sobota, 12 czerwca 2027</span>
+                  <span class="chip"><svg><use href="#i-home"/></svg>Sala Główna</span>
+                  <span class="chip"><svg><use href="#i-users"/></svg>140 planowanych gości</span>
+                </div>
+              </div>
+              <div class="two">
+                <div class="card">
+                  <div class="card-h">Osoby w wydarzeniu<span id="s1count">1 osoba</span></div>
+                  <div class="inv">
+                    <div style="font-size:13px;color:var(--ink-2);margin-bottom:8px">Zaproś Zamawiającego</div>
+                    <div class="inv-row">
+                      <div class="fin" id="s1mail"><svg><use href="#i-mail"/></svg><span class="mailchip hid" id="s1chip1">anna.wojcik@gmail.com</span><span class="mailchip hid" id="s1chip2">michal.wojcik@gmail.com</span><span id="s1type"></span><i class="caret"></i></div>
+                      <span class="a-btn" id="s1send">Wyślij zaproszenie</span>
+                    </div>
+                  </div>
+                  <div class="ppl-row"><span class="av av-b">KN</span><div><b>Katarzyna Nowak</b><small>Organizator · Manager</small></div><em class="st st-good">Aktywny</em></div>
+                  <div class="ppl-row new" id="s1p1"><span class="av av-g">AW</span><div><b>Anna Wójcik</b><small>Zamawiający</small></div><em class="st st-warn" id="s1p1st">Zaproszenie wysłane</em></div>
+                  <div class="ppl-row new" id="s1p2"><span class="av av-g">MW</span><div><b>Michał Wójcik</b><small>Zamawiający</small></div><em class="st st-warn">Zaproszenie wysłane</em></div>
+                </div>
+                <div class="card">
+                  <div class="card-h">Co widzi Zamawiający<span>można zmienić później</span></div>
+                  <div class="perm"><span class="tog" id="t0"></span>Lista gości i RSVP<span class="lvl">edycja</span></div>
+                  <div class="perm"><span class="tog" id="t1"></span>Menu, diety i alergie<span class="lvl">edycja</span></div>
+                  <div class="perm"><span class="tog" id="t2"></span>Stoły<span class="lvl">edycja</span></div>
+                  <div class="perm"><span class="tog" id="t3"></span>Dodatki i atrakcje<span class="lvl">edycja</span></div>
+                  <div class="perm"><span class="tog" id="t4"></span>Finanse<span class="lvl">podgląd</span></div>
+                  <div class="perm"><svg><use href="#i-lock"/></svg>Notatki wewnętrzne<span class="lvl">tylko obiekt</span></div>
+                </div>
+              </div>
+              <div class="toast" id="s1toast"><svg><use href="#i-check"/></svg>Zaproszenia wysłane do 2 osób</div>
+            </div>
+
+            <!-- 3. Wspólne ustalenia -->
+            <div class="scene" data-scene="2">
+              <div class="a-grid">
+                <aside class="a-side sec-list">
+                  <div class="a-lbl">Sekcje wydarzenia<span id="s2ready">2 z 8</span></div>
+                  <div class="a-nav"><svg class="ico-good"><use href="#i-check"/></svg>Dane wydarzenia</div>
+                  <div class="a-nav"><svg class="ico-good"><use href="#i-check"/></svg>Kontakty<em>6 firm</em></div>
+                  <div class="a-nav" id="s2n0"><svg class="ico-idle"><use href="#i-empty"/></svg>Lista gości<em>—</em></div>
+                  <div class="a-nav" id="s2n1"><svg class="ico-idle"><use href="#i-empty"/></svg>Menu<em>—</em></div>
+                  <div class="a-nav" id="s2n2"><svg class="ico-idle"><use href="#i-empty"/></svg>Dodatki<em>—</em></div>
+                  <div class="a-nav"><svg class="ico-idle"><use href="#i-empty"/></svg>Harmonogram<em>—</em></div>
+                  <div class="a-nav"><svg class="ico-warn"><use href="#i-clock"/></svg>Finanse<em>Rata 22.05</em></div>
+                  <div class="a-nav" id="s2n3"><svg class="ico-idle"><use href="#i-empty"/></svg>Dokumenty<em>1 plik</em></div>
+                </aside>
+                <div class="a-main">
+                  <div class="a-h"><h3>Wesele Anny i Michała</h3>
+                    <div class="live"><span class="pulse"></span><small>Teraz w wydarzeniu</small><div class="avs"><span class="av-b">KN</span><span class="av-g">AW</span><span class="av-w">SB</span></div></div>
+                  </div>
+                  <div class="prog"><b id="s2prog">2 z 8 sekcji gotowe</b><div class="bar"><i id="s2bar"></i></div></div>
+                  <div class="feed-grid">
+                    <div class="card">
+                      <div class="card-h">Ostatnie zmiany<span>na żywo</span></div>
+                      <div class="feed-item" id="s2f0"><span class="av av-g">AW</span><div><b>Anna zaimportowała listę gości</b><small>118 osób · 6 diet · 1 alergia</small></div><time>18:42</time></div>
+                      <div class="feed-item" id="s2f1"><span class="av av-g">AW</span><div><b>Anna wybrała menu</b><small>6 z 9 pozycji · danie szefa kuchni +18 zł/os.</small></div><time>18:47</time></div>
+                      <div class="feed-item" id="s2f2"><span class="av av-g">MW</span><div><b>Michał zamówił fotobudkę</b><small>Dodatki i atrakcje · +1 200 zł</small></div><time>18:51</time></div>
+                      <div class="feed-item" id="s2f3"><span class="av av-w">SB</span><div><b>Cukiernia Sweet Bar wgrała projekt tortu</b><small>czeka na akceptację Pary</small></div><time>18:55</time></div>
+                    </div>
+                    <div class="card quote">
+                      <div class="k">Wycena · wersja 3</div>
+                      <div class="v" id="s2val">0 zł</div>
+                      <small id="s2sub">uzupełnij listę gości</small>
+                      <div style="margin-top:16px">
+                        <div class="qline new" id="s2q0"><span>118 osób × 360 zł</span><b>42 480 zł</b></div>
+                        <div class="qline new" id="s2q1"><span>Danie szefa kuchni</span><b>+924 zł</b></div>
+                        <div class="qline new" id="s2q2"><span>Fotobudka</span><b>+1 200 zł</b></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Kompletność -->
+            <div class="scene" data-scene="3">
+              <div class="a-grid">
+                <aside class="a-side">
+                  <div class="a-lbl">Obiekt</div>
+                  <div class="a-nav on"><svg><use href="#i-grid"/></svg>Kokpit<em class="cnt" id="s3badge">4</em></div>
+                  <div class="a-nav"><svg><use href="#i-cal"/></svg>Kalendarz</div>
+                  <div class="a-nav"><svg><use href="#i-spark"/></svg>Wydarzenia<em>35</em></div>
+                  <div class="a-nav"><svg><use href="#i-fork"/></svg>Oferta i cenniki</div>
+                  <div class="a-nav"><svg><use href="#i-doc"/></svg>Dokumenty</div>
+                </aside>
+                <div class="a-main">
+                  <div class="a-h" style="margin-bottom:6px"><h3>Dzień dobry, Katarzyno</h3></div>
+                  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:18px">wtorek, 18 maja 2027 · cztery sprawy czekają na Twoją decyzję</p>
+                  <div class="stats">
+                    <div class="card stat"><small>Wydarzenia w maju</small><b data-count="7">0</b></div>
+                    <div class="card stat crit"><small>Wymaga decyzji</small><b data-count="4" id="s3dec">0</b></div>
+                    <div class="card stat warn"><small>Zbliżające się raty</small><b data-count="2">0</b></div>
+                    <div class="card stat good"><small>Sekcje zamknięte w tym tyg.</small><b data-count="12">0</b></div>
+                  </div>
+                  <div class="att">
+                    <div class="card">
+                      <div class="card-h">Wymaga uwagi<span>wszystkie wydarzenia</span></div>
+                      <div class="att-row" id="s3r0"><svg class="ico-crit"><use href="#i-alert"/></svg><div><b>Zimna płyta — wybrano 0 z 7 pozycji</b><small>Wesele Anny i Michała · blokada edycji 5 czerwca</small></div><em class="st st-new">Zamawiający</em></div>
+                      <div class="att-row" id="s3r1"><svg class="ico-warn"><use href="#i-clock"/></svg><div><b>Rata 2 — 10 000 zł</b><small>Wesele Anny i Michała · termin 22 maja</small></div><em class="st st-idle">Manager</em></div>
+                      <div class="att-row" id="s3r2"><svg class="ico-crit"><use href="#i-users"/></svg><div><b>96 gości, sala plenerowa mieści 90</b><small>Komunia Zosi · 30 maja</small></div><span class="a-ghost">Rozwiąż</span></div>
+                      <div class="att-row" id="s3r3"><svg class="ico-crit" id="s3r3ic"><use href="#i-doc"/></svg><div><b id="s3r3t">Karta Realizacji nieaktualna</b><small id="s3r3s">Jubileusz Terma · menu zmieniono po zatwierdzeniu</small></div><span class="a-btn" id="s3btn">Wydaj wersję 3</span></div>
+                    </div>
+                    <div class="card">
+                      <div class="card-h">Najbliższe terminy</div>
+                      <div class="dl-row"><span class="d" style="background:var(--warn-soft);color:var(--warn)"><b>22</b><small>maja</small></span><p>Rata 2, 10 000 zł<small>Wesele Anny i Michała</small></p></div>
+                      <div class="dl-row"><span class="d" style="background:var(--brand-soft);color:var(--brand)"><b>30</b><small>maja</small></span><p>Komunia Zosi<small>sala plenerowa, 96 osób</small></p></div>
+                      <div class="dl-row"><span class="d" style="background:var(--crit-soft);color:var(--crit)"><b>5</b><small>czerwca</small></span><p>Blokada edycji<small>Wesele Anny i Michała, 12:00</small></p></div>
+                      <div class="dl-row"><span class="d" style="background:var(--good-soft);color:var(--good)"><b>12</b><small>czerwca</small></span><p>Wesele Anny i Michała<small>Sala Główna, 118 osób</small></p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Karta Realizacji -->
+            <div class="scene" data-scene="4">
+              <div class="kr">
+                <div class="kr-card">
+                  <div class="kr-top">
+                    <div>
+                      <div class="k">Karta Realizacji · EV-2027-0142</div>
+                      <h3>Wesele Anny i Michała</h3>
+                      <p>sobota, 12 czerwca 2027 · Sala Główna · 118 osób · start 16:30</p>
+                    </div>
+                    <div class="stamp" id="s4stamp"><b>Wersja 3 · wydana</b><small>zaakceptowane 8 czerwca</small></div>
+                  </div>
+                  <div class="tabs">
+                    <span class="tab" id="s4t0">Kuchnia</span>
+                    <span class="tab" id="s4t1">Obsługa</span>
+                    <span class="tab" id="s4t2">Bar</span>
+                    <span class="tab">Manager</span>
+                  </div>
+                  <div class="panes">
+                    <div class="pane" id="s4p0">
+                      <div class="kpis">
+                        <div class="kpi"><b>118</b><small>porcji</small></div>
+                        <div class="kpi"><b>6</b><small>wegetariańskich</small></div>
+                        <div class="kpi"><b>2</b><small>bezglutenowe</small></div>
+                        <div class="kpi alert"><b>1</b><small>alergia: orzechy · stół 4</small></div>
+                      </div>
+                      <div class="sched">
+                        <div class="sched-row"><time>17:30</time>Zupa · rosół z makaronem<span>118 porcji</span></div>
+                        <div class="sched-row"><time>18:00</time>Danie główne, półmiskowo · 5 pozycji<span>12 stołów</span></div>
+                        <div class="sched-row"><time>21:00</time>Dania gorące · bigos, gulasz węgierski<span>2 z 2</span></div>
+                        <div class="sched-row"><time>22:30</time>Tort · Cukiernia Sweet Bar<span>dostawa 20:00</span></div>
+                      </div>
+                    </div>
+                    <div class="pane" id="s4p1">
+                      <div class="kpis">
+                        <div class="kpi"><b>12</b><small>stołów okrągłych</small></div>
+                        <div class="kpi"><b>118</b><small>nakryć</small></div>
+                        <div class="kpi"><b>3</b><small>krzesełka dziecięce</small></div>
+                        <div class="kpi"><b>2</b><small>stoły serwisowe</small></div>
+                      </div>
+                      <div class="sched">
+                        <div class="sched-row"><time>14:00</time>Ustawienie sali · dekoracje biało-zielone<span>Dekor Studio</span></div>
+                        <div class="sched-row"><time>16:30</time>Powitanie Pary chlebem i solą<span>wejście główne</span></div>
+                        <div class="sched-row"><time>17:30</time>Serwis zupy · 6 kelnerów<span>od stołu Pary</span></div>
+                        <div class="sched-row"><time>20:00</time>Fotobudka · strefa przy tarasie<span>do 01:00</span></div>
+                      </div>
+                    </div>
+                    <div class="pane" id="s4p2">
+                      <div class="kpis">
+                        <div class="kpi"><b>30</b><small>wódka 0,5 l</small></div>
+                        <div class="kpi"><b>24</b><small>wino białe</small></div>
+                        <div class="kpi"><b>18</b><small>wino czerwone</small></div>
+                        <div class="kpi"><b>bez limitu</b><small>napoje i soki</small></div>
+                      </div>
+                      <div class="sched">
+                        <div class="sched-row"><time>16:30</time>Prosecco na powitanie<span>118 kieliszków</span></div>
+                        <div class="sched-row"><time>17:00</time>Napoje bezalkoholowe na stołach<span>dolewka na bieżąco</span></div>
+                        <div class="sched-row"><time>19:00</time>Alkohol na stołach · schłodzony<span>2 butelki / stół</span></div>
+                        <div class="sched-row"><time>22:00</time>Drink bar<span>do 02:00</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cursor off" id="cursor"><svg><use href="#i-cursor"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <figcaption>
+        <div class="film-ui">
+          <button class="play" id="play" type="button" aria-label="Zatrzymaj animację"><svg><use href="#i-pause"/></svg></button>
+          <ol class="chapters" id="chapters">
+            <li><button type="button" data-ch="0"><span class="ch-bar"><i></i></span><span class="ch-lbl"><b>01</b>Utwórz wydarzenie</span></button></li>
+            <li><button type="button" data-ch="1"><span class="ch-bar"><i></i></span><span class="ch-lbl"><b>02</b>Zaproś Zamawiającego</span></button></li>
+            <li><button type="button" data-ch="2"><span class="ch-bar"><i></i></span><span class="ch-lbl"><b>03</b>Uzupełniajcie ustalenia</span></button></li>
+            <li><button type="button" data-ch="3"><span class="ch-bar"><i></i></span><span class="ch-lbl"><b>04</b>BIFOR pilnuje kompletności</span></button></li>
+            <li><button type="button" data-ch="4"><span class="ch-bar"><i></i></span><span class="ch-lbl"><b>05</b>Przejdź do realizacji</span></button></li>
+          </ol>
+          <span class="tc" id="tc">00:00</span>
+        </div>
+        <div class="film-cap">
+          <p class="now" id="now" aria-live="polite"><b>Utwórz wydarzenie.</b> <span>Manager dodaje wydarzenie i podstawowe informacje.</span></p>
+          <p class="free">Kolejność jest dowolna — pracujecie nad tym, co jest gotowe do ustalenia.</p>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="sec first">
+  <div class="wrap prob">
+    <div class="txt">
+      <h2 class="rv">Koniec z ustaleniami rozsianymi po wielu miejscach.</h2>
+      <p class="rv" style="--d:1">E-maile, wiadomości, Excel, dokumenty i notatki często zawierają różne wersje informacji dotyczących tego samego wydarzenia. BIFOR zbiera je w jednym miejscu.</p>
+      <p class="claim rv" style="--d:2">Jedno wydarzenie. Jedna aktualna wersja ustaleń.</p>
+    </div>
+    <div>
+      <ul class="sources" id="sources">
+        <li style="--d:0"><svg><use href="#i-mail"/></svg><span class="n">E-mail</span><span class="q">„Menu – wersja ostateczna (2)”</span></li>
+        <li style="--d:1"><svg><use href="#i-sheet"/></svg><span class="n">Arkusz Excel</span><span class="q">goscie_FINAL_v3.xlsx</span></li>
+        <li style="--d:2"><svg><use href="#i-chat"/></svg><span class="n">Wiadomości</span><span class="q">„Będzie jednak 124 osoby”</span></li>
+        <li style="--d:3"><svg><use href="#i-note"/></svg><span class="n">Notatki managera</span><span class="q">„tort — potwierdzić z cukiernią”</span></li>
+        <li style="--d:4"><svg><use href="#i-phone"/></svg><span class="n">Telefon</span><span class="q">„a dieta dla babci?”</span></li>
+      </ul>
+      <div class="merged">
+        <svg><use href="#i-check"/></svg>
+        <div><b>Wesele Anny i Michała w BIFOR</b><small>118 gości · menu 9 z 9 · 1 dieta bezglutenowa · tort zaakceptowany</small></div>
+        <span class="upd">zaktualizowano 2 min temu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNKCJE ============ -->
+<section class="sec" id="funkcje">
+  <div class="wrap">
+    <div class="sh">
+      <h2 class="rv">Wszystko, czego potrzebujesz do przygotowania wydarzenia.</h2>
+      <p class="rv" style="--d:1">Każdy obszar wydarzenia ma swoje miejsce. Możesz przechodzić między nimi swobodnie — BIFOR pokazuje, co jest gotowe, a czego jeszcze brakuje.</p>
+    </div>
+    <div class="feats">
+      <div class="feat rv" style="--d:0"><span class="num">01</span><h3>Goście</h3><p>Lista gości, RSVP, import, diety i alergie.</p></div>
+      <div class="feat rv" style="--d:1"><span class="num">02</span><h3>Stoły</h3><p>Plan sali i rozmieszczenie gości.</p></div>
+      <div class="feat rv" style="--d:2"><span class="num">03</span><h3>Menu</h3><p>Wybory zgodne z ofertą organizatora.</p></div>
+      <div class="feat rv" style="--d:3"><span class="num">04</span><h3>Dodatki</h3><p>Atrakcje i dodatkowe usługi.</p></div>
+      <div class="feat rv" style="--d:0"><span class="num">05</span><h3>Harmonogram</h3><p>Aktualny przebieg wydarzenia.</p></div>
+      <div class="feat rv" style="--d:1"><span class="num">06</span><h3>Dokumenty</h3><p>Materiały i dokumenty wydarzenia.</p></div>
+      <div class="feat rv" style="--d:2"><span class="num">07</span><h3>Płatności</h3><p>Kosztorys i rozliczenia.</p></div>
+      <div class="feat rv" style="--d:3"><span class="num">08</span><h3>Karta Realizacji</h3><p>Gotowe informacje dla zespołów realizacyjnych.</p></div>
+    </div>
+    <div class="feats-more rv">
+      <p>A także: kontakty i usługodawcy, dekoracje, napoje i alkohole, tort i desery, noclegi, wiadomości i historia zmian oraz podsumowanie wydarzenia.</p>
+      <a class="link" href="dolacz.html" data-track="cta_start_click" data-place="features">Rozpocznij z BIFOR →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WPISUJESZ RAZ ============ -->
+<section class="sec" id="dane">
+  <div class="wrap once">
+    <div class="txt">
+      <h2 class="rv">Informację wpisujesz raz.</h2>
+      <p class="rv" style="--d:1">BIFOR wykorzystuje te same dane wszędzie tam, gdzie są potrzebne. Jeżeli zmienia się liczba gości, nie poprawiasz jej ręcznie w kilku plikach.</p>
+      <p class="claim rv" style="--d:2">Mniej przepisywania. Mniej błędów.<br>Jedna aktualna wersja danych.</p>
+      <p class="try rv" style="--d:3"><svg><use href="#i-arrow"/></svg>Zmień liczbę gości i zobacz, co się dzieje.</p>
+    </div>
+    <div class="calc rv" style="--d:1">
+      <div class="calc-in">
+        <div class="calc-top">
+          <div class="l"><small>WESELE ANNY I MICHAŁA</small><b>Liczba gości</b></div>
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="Zmniejsz liczbę gości">−</button>
+            <output id="gOut" for="gRange" aria-live="polite">118</output>
+            <button type="button" data-step="1" aria-label="Zwiększ liczbę gości">+</button>
+          </div>
+        </div>
+        <input class="range" type="range" id="gRange" min="40" max="200" value="118" aria-label="Liczba gości">
+        <div class="range-scale"><span>40</span><span>200</span></div>
+      </div>
+      <ul class="outs">
+        <li id="oT"><span class="l">Stoły<small>plan sali</small></span><span class="v" id="vT">12 stołów po 10 osób</span></li>
+        <li id="oP"><span class="l">Kuchnia<small>menu i porcje</small></span><span class="v" id="vP">118 porcji</span></li>
+        <li id="oC"><span class="l">Kosztorys<small>360 zł / os. + dodatki</small></span><span class="v" id="vC">44 604 zł</span></li>
+        <li id="oK"><span class="l">Karta Realizacji<small>dla kuchni, obsługi i baru</small></span><span class="v" id="vK"><em class="st st-good">aktualna · wersja 3</em></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLE ============ -->
+<section class="sec paper" id="role">
+  <div class="wrap">
+    <div class="sh">
+      <h2 class="rv">Jedno wydarzenie. Różne role.</h2>
+      <p class="rv" style="--d:1">Każdy widzi to, czego potrzebuje. Wszyscy pracują na tych samych danych.</p>
+    </div>
+    <div class="roles">
+      <ul class="role-tabs" role="tablist" aria-label="Role w wydarzeniu" id="roleTabs">
+        <li><button role="tab" id="rt0" aria-selected="true" aria-controls="rolePanel" data-role="0"><b>Organizator</b><small>Zarządza całością wydarzenia.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt1" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="1"><b>Zamawiający</b><small>Uzupełnia udostępnione informacje.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt2" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="2"><b>Wedding planner</b><small>Może współprowadzić wydarzenie.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt3" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="3"><b>Usługodawca</b><small>Otrzymuje tylko potrzebny zakres danych.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt4" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="4"><b>Zespół realizacyjny</b><small>Otrzymuje informacje potrzebne do swojej pracy.</small><svg><use href="#i-arrow"/></svg></button></li>
+      </ul>
+      <div class="view rv" id="rolePanel" role="tabpanel" aria-labelledby="rt0">
+        <div class="view-h">
+          <span class="av av-b" id="rAv">KN</span>
+          <div><b id="rName">Katarzyna Nowak</b><small id="rRole">Organizator · manager obiektu</small></div>
+          <div class="ev">Wesele Anny i Michała<small>12.06.2027</small></div>
+        </div>
+        <ul class="acc" id="rAcc"></ul>
+        <div class="view-f" id="rFoot">Pełna kontrola nad wydarzeniem, zaproszeniami i uprawnieniami.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REALIZACJA ============ -->
+<section class="sec first" id="realizacja">
+  <div class="wrap">
+    <div class="sh">
+      <h2 class="rv">Organizujesz w BIFOR. Realizujesz z BIFOR.</h2>
+      <p class="rv" style="--d:1">Informacje zebrane podczas przygotowań automatycznie tworzą dane potrzebne managerowi, kuchni, obsłudze, barowi i pozostałym zespołom.</p>
+    </div>
+    <div class="flow rv" id="flow">
+      <span class="node">Ustalenia</span><span class="arrow"></span>
+      <span class="node">Akceptacja</span><span class="arrow"></span>
+      <span class="node last">Karta Realizacji</span>
+    </div>
+    <div class="teams">
+      <article class="team rv">
+        <div class="ph"><img src="assets/img/kuchnia.jpg" alt="Kucharz wykańcza danie na talerzu w kuchni" loading="lazy" width="900" height="600"></div>
+        <h3>Kuchnia</h3>
+        <ul><li>liczba osób i porcji</li><li>menu, diety i alergie</li><li>godziny serwisu, tort</li></ul>
+      </article>
+      <article class="team rv" style="--d:1">
+        <div class="ph"><img src="assets/img/obsluga.jpg" alt="Kelner niosący tacę z talerzami podczas przyjęcia" loading="lazy" width="900" height="1350"></div>
+        <h3>Obsługa</h3>
+        <ul><li>ustawienie sali i plan stołów</li><li>dekoracje i harmonogram</li><li>dodatki i uwagi operacyjne</li></ul>
+      </article>
+      <article class="team rv" style="--d:2">
+        <div class="ph"><img src="assets/img/bar.jpg" alt="Barman nalewający napój do shakera" loading="lazy" width="900" height="1350"></div>
+        <h3>Bar</h3>
+        <ul><li>napoje i alkohole</li><li>ilości i sposób podania</li><li>godziny serwisu</li></ul>
+      </article>
+    </div>
+    <div class="mgr rv"><b>Manager</b><span>ma pełny obraz wydarzenia — i wie, która wersja Karty jest aktualna.</span></div>
+  </div>
+</section>
+
+<!-- ============ DOŚWIADCZENIE ============ -->
+<section class="sec" id="doswiadczenie">
+  <div class="wrap exp">
+    <div class="txt">
+      <h2 class="rv">Najpierw doświadczenie. <span>Później technologia.</span></h2>
+      <p class="rv" style="--d:1">BIFOR powstał na podstawie wieloletniego doświadczenia w organizacji wesel i przyjęć. Funkcje systemu wynikają z rzeczywistych procesów związanych z obsługą klienta, przygotowaniem wydarzenia i jego realizacją.</p>
+      <ul class="proc rv" style="--d:2">
+        <li>Sprzedaż przyjęć</li><li>Ustalenia z klientami</li><li>Przygotowanie menu</li><li>Praca z listami gości</li><li>Układy sal</li>
+        <li>Dodatki i rozliczenia</li><li>Komunikacja z usługodawcami</li><li>Przygotowanie kuchni i obsługi</li><li>Realizacja wydarzenia</li><li>Zmiany w ostatniej chwili</li>
+      </ul>
+    </div>
+    <div class="ph rv" style="--d:1"><img src="assets/img/stol.jpg" alt="Nakryty okrągły stół z numerem 18 na sali bankietowej" loading="lazy" width="1000" height="667"></div>
+  </div>
+</section>
+
+<!-- ============ DLA KOGO ============ -->
+<section class="sec" id="dla-kogo">
+  <div class="wrap aud">
+    <div class="ph rv"><img src="assets/img/sala.jpg" alt="Jasna sala bankietowa z długimi stołami i kamiennym kominkiem" loading="lazy" width="1200" height="800"></div>
+    <div>
+      <h2 class="rv">Dla tych, którzy organizują wydarzenia.</h2>
+      <ul class="aud-list">
+        <li class="rv" style="--d:1"><b>Obiekty i lokale</b><span>Sale weselne, restauracje, hotele i przestrzenie eventowe.</span></li>
+        <li class="rv" style="--d:2"><b>Managerowie i koordynatorzy</b><span>Osoby odpowiedzialne za sprzedaż i organizację.</span></li>
+        <li class="rv" style="--d:3"><b>Wedding plannerzy</b><span>Osoby organizujące wydarzenia dla klientów.</span></li>
+        <li class="rv" style="--d:4"><b>Agencje eventowe</b><span>Firmy prowadzące wydarzenia prywatne i biznesowe.</span></li>
+      </ul>
+      <p class="types rv">Wesela · komunie · chrzciny · jubileusze · urodziny · eventy firmowe · konferencje</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div class="txt">
+      <h2 class="rv">Pytania i odpowiedzi</h2>
+      <p class="rv" style="--d:1">Nie ma tu Twojego pytania? Napisz do nas w formularzu — odpowiemy.</p>
+      <a class="link rv" style="--d:2" href="dolacz.html" data-track="cta_start_click" data-place="faq">Przejdź do formularza →</a>
+    </div>
+    <div class="qa rv" style="--d:1">
+      <details open><summary>Czym jest BIFOR?<i></i></summary><div class="ans"><p>BIFOR to oprogramowanie, które porządkuje cały proces ustaleń dotyczących wydarzenia w jednym miejscu.</p></div></details>
+      <details><summary>Czy BIFOR jest tylko dla sal weselnych?<i></i></summary><div class="ans"><p>Nie. BIFOR jest przeznaczony dla różnych organizatorów wydarzeń, w tym obiektów, restauracji, managerów, wedding plannerów i agencji eventowych.</p></div></details>
+      <details><summary>Czy Zamawiający otrzymuje własny dostęp?<i></i></summary><div class="ans"><p>Tak. Organizator może zaprosić klienta do konkretnego wydarzenia.</p></div></details>
+      <details><summary>Czy klient widzi wszystkie informacje?<i></i></summary><div class="ans"><p>Nie. Zakres widoczności zależy od jego roli i uprawnień.</p></div></details>
+      <details><summary>Czy można zaprosić usługodawcę?<i></i></summary><div class="ans"><p>Tak. Usługodawca może otrzymać ograniczony dostęp do informacji potrzebnych do swojej pracy.</p></div></details>
+      <details><summary>Czy BIFOR można dopasować do konkretnego obiektu?<i></i></summary><div class="ans"><p>Tak. Organizacja może skonfigurować m.in. własne przestrzenie, menu, cenniki, pakiety, dodatki i zasady pracy.</p></div></details>
+      <details><summary>Czy BIFOR jest gotowy do użycia?<i></i></summary><div class="ans"><p>BIFOR jest przygotowanym i testowanym oprogramowaniem gotowym do kolejnych wdrożeń.</p></div></details>
+      <details><summary>Jak rozpocząć korzystanie?<i></i></summary><div class="ans"><p>Wypełnij formularz „Rozpocznij z BIFOR”. Skontaktujemy się w sprawie uruchomienia konta.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="sec paper">
+  <div class="wrap cta">
+    <div>
+      <h2 class="rv">Chcesz korzystać z&nbsp;BIFOR?</h2>
+      <p class="lead rv" style="--d:1">Prześlij podstawowe informacje. Skontaktujemy się z Tobą i przedstawimy sposób uruchomienia BIFOR w Twojej organizacji.</p>
+      <div class="cta-row rv" style="--d:2">
+        <a class="btn btn-primary" href="dolacz.html" data-track="cta_start_click" data-place="final_cta">Rozpocznij z BIFOR <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <ol class="next rv" style="--d:2">
+      <li><div>Wypełniasz krótki formularz<small>dane kontaktowe i kilka słów o organizacji</small></div></li>
+      <li><div>Kontaktujemy się z Tobą<small>omawiamy, jak pracujecie przy wydarzeniach</small></div></li>
+      <li><div>Uruchamiamy BIFOR<small>konfiguracja sal, menu, cenników i zasad pracy</small></div></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+        <p>Wszystkie ustalenia wydarzenia. Jedno miejsce.</p>
+      </div>
+      <div><h4>Produkt</h4><ul><li><a href="#jak-dziala">Jak działa</a></li><li><a href="#funkcje">Funkcje</a></li><li><a href="#role">Role</a></li><li><a href="#realizacja">Realizacja</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="dolacz.html" data-track="cta_start_click" data-place="footer">Rozpocznij z BIFOR</a></li><li><a href="#dla-kogo">Dla kogo</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Informacje</h4><ul><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="polityka-cookies.html">Polityka cookies</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 BIFOR</span><span>Oprogramowanie do organizacji wydarzeń</span></div>
+    <div class="ft-word" aria-hidden="true">bifor</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/film.js"></script>
+</body>
+</html>
