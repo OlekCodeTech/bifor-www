@@ -49,7 +49,7 @@ def footer(active):
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+        <a href="index.html" class="logo" aria-label="BIFOR — strona główna"><img src="assets/img/logo/bifor-logo.svg" alt="BIFOR" width="104" height="27"></a>
         <p>Wszystkie ustalenia wydarzenia. Jedno miejsce.</p>
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
@@ -72,7 +72,7 @@ def shell(title, desc, body, active):
 <title>{title} — BIFOR</title>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#6F5BD8">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -84,7 +84,7 @@ def shell(title, desc, body, active):
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="index.html" class="logo" aria-label="BIFOR — strona główna">bifor<span></span></a>
+    <a href="index.html" class="logo" aria-label="BIFOR — strona główna"><img src="assets/img/logo/bifor-logo.svg" alt="BIFOR" width="104" height="27"></a>
     <nav class="nav-links" aria-label="Główna nawigacja">{nav}</nav>
     <div class="nav-end">
       <a class="btn btn-primary btn-sm" href="dolacz.html">Rozpocznij z BIFOR</a>
@@ -154,7 +154,7 @@ def main():
 <title>Polityka cookies — BIFOR</title>
 <link rel="canonical" href="{target}">
 <meta http-equiv="refresh" content="0; url={target}">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>

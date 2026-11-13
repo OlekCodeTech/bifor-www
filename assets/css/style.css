@@ -17,6 +17,8 @@
   --brand:#6F5BD8;
   --brand-dark:#4D3BB3;
   --brand-soft:#EDE9FA;
+  --mint:#2ED3C0;        /* akcent marki (kursor w logo) — NIE jest kolorem statusu */
+  --mint-deep:#0F9C8C;   /* mięta do tekstu i ikon na bieli */
 
   --good:#3E9E63;  --good-soft:#E3F2E8;
   --warn:#B98424;  --warn-soft:#F7EDD5;
@@ -63,8 +65,9 @@ button{font:inherit; color:inherit}
 .nav{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.88); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid transparent; transition:border-color .3s}
 .nav.scrolled{border-bottom-color:var(--line)}
 .nav-in{display:flex; align-items:center; gap:36px; height:72px}
-.logo{display:inline-flex; align-items:flex-end; gap:5px; font-size:26px; font-weight:600; letter-spacing:-.05em; text-decoration:none; color:var(--ink); line-height:1}
-.logo span{width:8px; height:8px; border-radius:50%; background:var(--brand); margin-bottom:4px}
+.logo{display:inline-flex; align-items:center; text-decoration:none; line-height:0}
+.logo img{height:27px; width:auto; display:block}
+@media (max-width:480px){ .logo img{height:24px} }
 .nav-links{display:flex; gap:28px}
 .nav-links a{font-size:15px; color:var(--ink-2); text-decoration:none; transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -138,8 +141,8 @@ button{font:inherit; color:inherit}
 
 /* ---------- wnętrze aplikacji (scena) ---------- */
 .a-bar{position:absolute; left:0; right:0; top:0; height:56px; background:var(--brand); color:#fff; display:flex; align-items:center; gap:18px; padding:0 22px; z-index:5}
-.a-logo{font-size:20px; font-weight:600; letter-spacing:-.05em; display:flex; align-items:flex-end; gap:4px}
-.a-logo i{width:6px; height:6px; border-radius:50%; background:#8FE0AE; margin-bottom:5px}
+.a-logo{display:flex; align-items:center; line-height:0}
+.a-logo img{height:19px; width:auto; display:block}
 .a-sep{width:1px; height:24px; background:rgba(255,255,255,.25)}
 .a-venue{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); border-radius:8px; padding:6px 12px; font-size:13px; font-weight:500}
 .a-venue span{opacity:.7; font-weight:400; margin-left:6px}
