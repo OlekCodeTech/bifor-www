@@ -260,6 +260,29 @@ section{{padding:72px 0;border-top:1px solid var(--line)}}
 .post .claim i{{font-style:normal;color:var(--mint)}}
 footer{{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--ink2);font-size:14px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){{*{{animation:none!important;transition:none!important}}}}
+
+/* Druk i PDF: bez wymuszonego druku tła próbki kolorów wyszłyby białe. */
+@media print{{
+  @page{{size:A4;margin:14mm}}
+  *{{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  body{{font-size:10.5pt}}
+  .wrap{{max-width:none;padding-inline:0}}
+  .cover{{padding:0 0 10px}}
+  .cover .wm{{height:54px}}
+  .cover h1{{font-size:30pt;margin-top:26px}}
+  .cover .sub{{font-size:11pt}}
+  section{{break-before:page;border-top:0;padding:0}}
+  .shead{{margin-bottom:22px}}
+  .shead h2{{font-size:20pt}}
+  .vcard,.dont,.sw,.app,.type-row,.scell,.clearbox,.note,.rules li{{break-inside:avoid}}
+  .vgrid{{grid-template-columns:repeat(3,1fr);gap:12px}}
+  .dgrid{{grid-template-columns:repeat(3,1fr);gap:12px}}
+  .swgrid{{grid-template-columns:repeat(5,1fr);gap:10px}}
+  .apps{{grid-template-columns:1fr 1fr;gap:12px}}
+  .vprev{{height:104px}}
+  .sw .chip{{height:62px}}
+  footer{{break-before:avoid;padding:28px 0 0}}
+}}
 </style>
 </head>
 <body>

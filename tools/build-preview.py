@@ -26,9 +26,11 @@ def between(s, start, end):
     return s[i:j + len(end)]
 
 
+MIME = {".svg": "image/svg+xml", ".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg"}
+
+
 def data_uri(path):
-    mime = "image/svg+xml" if path.suffix == ".svg" else "image/jpeg"
-    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+    return f"data:{MIME[path.suffix]};base64," + base64.b64encode(path.read_bytes()).decode()
 
 
 index = read("index.html")
@@ -72,6 +74,9 @@ body = re.sub(r'href="index\.html#([\w-]+)"', r'href="#\1"', body)
 body = body.replace('href="index.html"', 'href="#top"')
 
 # --- zdjęcia jako data URI
+# W jednym pliku nie ma wariantów rozmiaru: zostaje sam src, bez srcset i sizes.
+body = re.sub(r'\s+srcset="[^"]*"', "", body)
+body = re.sub(r'\s+sizes="[^"]*"', "", body)
 body = re.sub(r'src="(assets/img/[^"]+)"', lambda m: f'src="{data_uri(ROOT / m.group(1))}"', body)
 
 router = """

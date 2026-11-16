@@ -64,7 +64,7 @@
       <a href="#funkcje">Funkcje</a>
       <a href="#role">Role</a>
       <a href="#realizacja">Realizacja</a>
-      <a href="#dla-kogo">Dla kogo</a>
+      <a href="#doswiadczenie">Doświadczenie</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-end">
@@ -77,7 +77,7 @@
     <a href="#funkcje">Funkcje</a>
     <a href="#role">Role</a>
     <a href="#realizacja">Realizacja</a>
-    <a href="#dla-kogo">Dla kogo</a>
+    <a href="#doswiadczenie">Doświadczenie</a>
     <a href="#faq">FAQ</a>
     <a href="dolacz.html" data-track="cta_start_click" data-place="mobile_nav" style="color:var(--brand)">Rozpocznij z BIFOR →</a>
   </nav>
@@ -95,7 +95,7 @@
         <span class="ln"><span class="muted">Jedno miejsce.</span></span>
       </h1>
       <div class="hero-side">
-        <p class="lead">BIFOR porządkuje cały proces organizacji wydarzenia. Manager, Zamawiający i zaproszone osoby pracują na jednej aktualnej wersji informacji — od pierwszych ustaleń aż do realizacji.</p>
+        <p class="lead">BIFOR porządkuje cały proces organizacji wydarzenia. Sala, Zamawiający i zaproszone osoby pracują na jednej aktualnej wersji ustaleń: od rezerwacji terminu aż do dnia przyjęcia.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="dolacz.html" data-track="cta_start_click" data-place="hero">Rozpocznij z BIFOR <svg><use href="#i-arrow"/></svg></a>
           <a class="btn btn-line" href="#jak-dziala" data-track="how_it_works_click" data-place="hero">Zobacz, jak działa</a>
@@ -104,246 +104,39 @@
     </div>
 
     <!-- animacja produktu -->
-    <figure class="film" id="jak-dziala" aria-label="Animacja pokazująca, jak działa BIFOR">
+    <figure class="film" id="jak-dziala" aria-label="Film z ekranów programu: jak działa BIFOR">
       <div class="film-frame">
         <div class="film-vp" id="filmVp">
           <div class="stage" id="stage" aria-hidden="true">
-
-            <div class="a-bar">
-              <div class="a-logo"><img src="assets/img/logo/bifor-logo-odwrocone.svg" alt="BIFOR" width="73" height="19"></div>
-              <div class="a-sep"></div>
-              <div class="a-venue">Avocado<span>Sala Główna</span></div>
-              <div class="a-user"><svg class="a-bell"><use href="#i-bell"/></svg> Katarzyna Nowak <span class="a-av">KN</span></div>
+            <div class="shotf on" data-chapter="0" data-type="desk" data-fx="60" data-fy="30" data-zoom="1.25">
+              <img src="assets/img/app/kalendarz-sali-1600.webp" srcset="assets/img/app/kalendarz-sali-960.webp 960w, assets/img/app/kalendarz-sali-1600.webp 1600w, assets/img/app/kalendarz-sali-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" fetchpriority="high">
             </div>
-
-            <!-- 1. Utwórz wydarzenie -->
-            <div class="scene" data-scene="0">
-              <div class="a-grid">
-                <aside class="a-side">
-                  <div class="a-lbl">Obiekt</div>
-                  <div class="a-nav"><svg><use href="#i-grid"/></svg>Kokpit</div>
-                  <div class="a-nav"><svg><use href="#i-cal"/></svg>Kalendarz</div>
-                  <div class="a-nav on"><svg><use href="#i-spark"/></svg>Wydarzenia<em>34</em></div>
-                  <div class="a-nav"><svg><use href="#i-fork"/></svg>Oferta i cenniki</div>
-                  <div class="a-nav"><svg><use href="#i-doc"/></svg>Dokumenty</div>
-                </aside>
-                <div class="a-main">
-                  <div class="a-h"><h3>Wydarzenia</h3><span class="sub">sezon 2027</span><span class="a-btn" id="s0open"><svg><use href="#i-plus"/></svg>Nowe wydarzenie</span></div>
-                  <div class="card">
-                    <div class="tbl-row th"><span>Wydarzenie</span><span>Data</span><span>Sala</span><span>Goście</span><span>Status</span></div>
-                    <div class="tbl-row new" id="s0row"><b>Wesele Anny i Michała</b><span>12.06.2027</span><span>Sala Główna</span><span>140</span><em class="st st-new">Nowe</em></div>
-                    <div class="tbl-row"><b>Komunia Zosi</b><span>30.05.2027</span><span>Sala plenerowa</span><span>96</span><em class="st st-warn">W trakcie</em></div>
-                    <div class="tbl-row"><b>Jubileusz 40-lecia firmy Terma</b><span>05.06.2027</span><span>Sala Główna</span><span>180</span><em class="st st-good">Zatwierdzone</em></div>
-                    <div class="tbl-row"><b>Urodziny Pana Jerzego</b><span>06.06.2027</span><span>Sala Kameralna</span><span>42</span><em class="st st-warn">W trakcie</em></div>
-                    <div class="tbl-row"><b>Wesele Kasi i Tomka</b><span>19.06.2027</span><span>Sala Główna</span><span>126</span><em class="st st-good">Zatwierdzone</em></div>
-                    <div class="tbl-row"><b>Konferencja Agro-Tech</b><span>24.06.2027</span><span>Sala plenerowa</span><span>70</span><em class="st st-idle">Wstępne</em></div>
-                  </div>
-                </div>
-              </div>
-              <div class="scrim"></div>
-              <div class="modal">
-                <h4>Nowe wydarzenie</h4>
-                <p class="mh-sub">Podstawowe informacje. Resztę uzupełnicie razem z Zamawiającym.</p>
-                <div class="fld"><span>Nazwa wydarzenia</span><div class="fin" id="f0"><span data-text="Wesele Anny i Michała"></span><i class="caret"></i></div></div>
-                <div class="f2">
-                  <div class="fld"><span>Data</span><div class="fin" id="f1"><svg><use href="#i-cal"/></svg><span data-text="sobota, 12 czerwca 2027"></span><i class="caret"></i></div></div>
-                  <div class="fld"><span>Sala</span><div class="fin" id="f2"><svg><use href="#i-home"/></svg><span data-text="Sala Główna"></span><i class="caret"></i></div></div>
-                </div>
-                <div class="f2">
-                  <div class="fld"><span>Rodzaj</span><div class="fin" id="f3"><span data-text="Wesele"></span><i class="caret"></i></div></div>
-                  <div class="fld"><span>Planowana liczba gości</span><div class="fin" id="f4"><svg><use href="#i-users"/></svg><span data-text="140"></span><i class="caret"></i></div></div>
-                </div>
-                <div class="m-foot"><span class="a-ghost">Anuluj</span><span class="a-btn" id="s0create" style="margin-left:0">Utwórz wydarzenie</span></div>
-              </div>
+            <div class="shotf" data-chapter="0" data-type="desk" data-fx="100" data-fy="62" data-zoom="1.18">
+              <img src="assets/img/app/wstepna-rezerwacja-1600.webp" srcset="assets/img/app/wstepna-rezerwacja-960.webp 960w, assets/img/app/wstepna-rezerwacja-1600.webp 1600w, assets/img/app/wstepna-rezerwacja-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
             </div>
-
-            <!-- 2. Zaproś Zamawiającego -->
-            <div class="scene" data-scene="1">
-              <div class="ev-head">
-                <div class="ev-crumb">Wydarzenia › Wesele Anny i Michała</div>
-                <div class="ev-title"><h3>Wesele Anny i Michała</h3><em class="st st-new">Nowe</em></div>
-                <div class="chips">
-                  <span class="chip"><svg><use href="#i-cal"/></svg>sobota, 12 czerwca 2027</span>
-                  <span class="chip"><svg><use href="#i-home"/></svg>Sala Główna</span>
-                  <span class="chip"><svg><use href="#i-users"/></svg>140 planowanych gości</span>
-                </div>
-              </div>
-              <div class="two">
-                <div class="card">
-                  <div class="card-h">Osoby w wydarzeniu<span id="s1count">1 osoba</span></div>
-                  <div class="inv">
-                    <div style="font-size:13px;color:var(--ink-2);margin-bottom:8px">Zaproś Zamawiającego</div>
-                    <div class="inv-row">
-                      <div class="fin" id="s1mail"><svg><use href="#i-mail"/></svg><span class="mailchip hid" id="s1chip1">anna.wojcik@gmail.com</span><span class="mailchip hid" id="s1chip2">michal.wojcik@gmail.com</span><span id="s1type"></span><i class="caret"></i></div>
-                      <span class="a-btn" id="s1send">Wyślij zaproszenie</span>
-                    </div>
-                  </div>
-                  <div class="ppl-row"><span class="av av-b">KN</span><div><b>Katarzyna Nowak</b><small>Organizator · Manager</small></div><em class="st st-good">Aktywny</em></div>
-                  <div class="ppl-row new" id="s1p1"><span class="av av-g">AW</span><div><b>Anna Wójcik</b><small>Zamawiający</small></div><em class="st st-warn" id="s1p1st">Zaproszenie wysłane</em></div>
-                  <div class="ppl-row new" id="s1p2"><span class="av av-g">MW</span><div><b>Michał Wójcik</b><small>Zamawiający</small></div><em class="st st-warn">Zaproszenie wysłane</em></div>
-                </div>
-                <div class="card">
-                  <div class="card-h">Co widzi Zamawiający<span>można zmienić później</span></div>
-                  <div class="perm"><span class="tog" id="t0"></span>Lista gości i RSVP<span class="lvl">edycja</span></div>
-                  <div class="perm"><span class="tog" id="t1"></span>Menu, diety i alergie<span class="lvl">edycja</span></div>
-                  <div class="perm"><span class="tog" id="t2"></span>Stoły<span class="lvl">edycja</span></div>
-                  <div class="perm"><span class="tog" id="t3"></span>Dodatki i atrakcje<span class="lvl">edycja</span></div>
-                  <div class="perm"><span class="tog" id="t4"></span>Finanse<span class="lvl">podgląd</span></div>
-                  <div class="perm"><svg><use href="#i-lock"/></svg>Notatki wewnętrzne<span class="lvl">tylko obiekt</span></div>
-                </div>
-              </div>
-              <div class="toast" id="s1toast"><svg><use href="#i-check"/></svg>Zaproszenia wysłane do 2 osób</div>
+            <div class="shotf" data-chapter="1" data-type="desk" data-fx="34" data-fy="76" data-zoom="1.45">
+              <img src="assets/img/app/przeglad-wesela-1600.webp" srcset="assets/img/app/przeglad-wesela-960.webp 960w, assets/img/app/przeglad-wesela-1600.webp 1600w, assets/img/app/przeglad-wesela-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
             </div>
-
-            <!-- 3. Wspólne ustalenia -->
-            <div class="scene" data-scene="2">
-              <div class="a-grid">
-                <aside class="a-side sec-list">
-                  <div class="a-lbl">Sekcje wydarzenia<span id="s2ready">2 z 8</span></div>
-                  <div class="a-nav"><svg class="ico-good"><use href="#i-check"/></svg>Dane wydarzenia</div>
-                  <div class="a-nav"><svg class="ico-good"><use href="#i-check"/></svg>Kontakty<em>6 firm</em></div>
-                  <div class="a-nav" id="s2n0"><svg class="ico-idle"><use href="#i-empty"/></svg>Lista gości<em>—</em></div>
-                  <div class="a-nav" id="s2n1"><svg class="ico-idle"><use href="#i-empty"/></svg>Menu<em>—</em></div>
-                  <div class="a-nav" id="s2n2"><svg class="ico-idle"><use href="#i-empty"/></svg>Dodatki<em>—</em></div>
-                  <div class="a-nav"><svg class="ico-idle"><use href="#i-empty"/></svg>Harmonogram<em>—</em></div>
-                  <div class="a-nav"><svg class="ico-warn"><use href="#i-clock"/></svg>Finanse<em>Rata 22.05</em></div>
-                  <div class="a-nav" id="s2n3"><svg class="ico-idle"><use href="#i-empty"/></svg>Dokumenty<em>1 plik</em></div>
-                </aside>
-                <div class="a-main">
-                  <div class="a-h"><h3>Wesele Anny i Michała</h3>
-                    <div class="live"><span class="pulse"></span><small>Teraz w wydarzeniu</small><div class="avs"><span class="av-b">KN</span><span class="av-g">AW</span><span class="av-w">SB</span></div></div>
-                  </div>
-                  <div class="prog"><b id="s2prog">2 z 8 sekcji gotowe</b><div class="bar"><i id="s2bar"></i></div></div>
-                  <div class="feed-grid">
-                    <div class="card">
-                      <div class="card-h">Ostatnie zmiany<span>na żywo</span></div>
-                      <div class="feed-item" id="s2f0"><span class="av av-g">AW</span><div><b>Anna zaimportowała listę gości</b><small>118 osób · 6 diet · 1 alergia</small></div><time>18:42</time></div>
-                      <div class="feed-item" id="s2f1"><span class="av av-g">AW</span><div><b>Anna wybrała menu</b><small>6 z 9 pozycji · danie szefa kuchni +18 zł/os.</small></div><time>18:47</time></div>
-                      <div class="feed-item" id="s2f2"><span class="av av-g">MW</span><div><b>Michał zamówił fotobudkę</b><small>Dodatki i atrakcje · +1 200 zł</small></div><time>18:51</time></div>
-                      <div class="feed-item" id="s2f3"><span class="av av-w">SB</span><div><b>Cukiernia Sweet Bar wgrała projekt tortu</b><small>czeka na akceptację Pary</small></div><time>18:55</time></div>
-                    </div>
-                    <div class="card quote">
-                      <div class="k">Wycena · wersja 3</div>
-                      <div class="v" id="s2val">0 zł</div>
-                      <small id="s2sub">uzupełnij listę gości</small>
-                      <div style="margin-top:16px">
-                        <div class="qline new" id="s2q0"><span>118 osób × 360 zł</span><b>42 480 zł</b></div>
-                        <div class="qline new" id="s2q1"><span>Danie szefa kuchni</span><b>+924 zł</b></div>
-                        <div class="qline new" id="s2q2"><span>Fotobudka</span><b>+1 200 zł</b></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="shotf" data-chapter="1" data-type="phone">
+              <img class="bg" src="assets/img/app/przeglad-wesela-960.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+              <div class="handset"><img src="assets/img/app/wydarzenie-zamawiajacej-900.webp" srcset="assets/img/app/wydarzenie-zamawiajacej-480.webp 480w, assets/img/app/wydarzenie-zamawiajacej-900.webp 900w" sizes="420px" width="900" height="1948" alt="" loading="lazy" decoding="async"></div>
             </div>
-
-            <!-- 4. Kompletność -->
-            <div class="scene" data-scene="3">
-              <div class="a-grid">
-                <aside class="a-side">
-                  <div class="a-lbl">Obiekt</div>
-                  <div class="a-nav on"><svg><use href="#i-grid"/></svg>Kokpit<em class="cnt" id="s3badge">4</em></div>
-                  <div class="a-nav"><svg><use href="#i-cal"/></svg>Kalendarz</div>
-                  <div class="a-nav"><svg><use href="#i-spark"/></svg>Wydarzenia<em>35</em></div>
-                  <div class="a-nav"><svg><use href="#i-fork"/></svg>Oferta i cenniki</div>
-                  <div class="a-nav"><svg><use href="#i-doc"/></svg>Dokumenty</div>
-                </aside>
-                <div class="a-main">
-                  <div class="a-h" style="margin-bottom:6px"><h3>Dzień dobry, Katarzyno</h3></div>
-                  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:18px">wtorek, 18 maja 2027 · cztery sprawy czekają na Twoją decyzję</p>
-                  <div class="stats">
-                    <div class="card stat"><small>Wydarzenia w maju</small><b data-count="7">0</b></div>
-                    <div class="card stat crit"><small>Wymaga decyzji</small><b data-count="4" id="s3dec">0</b></div>
-                    <div class="card stat warn"><small>Zbliżające się raty</small><b data-count="2">0</b></div>
-                    <div class="card stat good"><small>Sekcje zamknięte w tym tyg.</small><b data-count="12">0</b></div>
-                  </div>
-                  <div class="att">
-                    <div class="card">
-                      <div class="card-h">Wymaga uwagi<span>wszystkie wydarzenia</span></div>
-                      <div class="att-row" id="s3r0"><svg class="ico-crit"><use href="#i-alert"/></svg><div><b>Zimna płyta — wybrano 0 z 7 pozycji</b><small>Wesele Anny i Michała · blokada edycji 5 czerwca</small></div><em class="st st-new">Zamawiający</em></div>
-                      <div class="att-row" id="s3r1"><svg class="ico-warn"><use href="#i-clock"/></svg><div><b>Rata 2 — 10 000 zł</b><small>Wesele Anny i Michała · termin 22 maja</small></div><em class="st st-idle">Manager</em></div>
-                      <div class="att-row" id="s3r2"><svg class="ico-crit"><use href="#i-users"/></svg><div><b>96 gości, sala plenerowa mieści 90</b><small>Komunia Zosi · 30 maja</small></div><span class="a-ghost">Rozwiąż</span></div>
-                      <div class="att-row" id="s3r3"><svg class="ico-crit" id="s3r3ic"><use href="#i-doc"/></svg><div><b id="s3r3t">Karta Realizacji nieaktualna</b><small id="s3r3s">Jubileusz Terma · menu zmieniono po zatwierdzeniu</small></div><span class="a-btn" id="s3btn">Wydaj wersję 3</span></div>
-                    </div>
-                    <div class="card">
-                      <div class="card-h">Najbliższe terminy</div>
-                      <div class="dl-row"><span class="d" style="background:var(--warn-soft);color:var(--warn)"><b>22</b><small>maja</small></span><p>Rata 2, 10 000 zł<small>Wesele Anny i Michała</small></p></div>
-                      <div class="dl-row"><span class="d" style="background:var(--brand-soft);color:var(--brand)"><b>30</b><small>maja</small></span><p>Komunia Zosi<small>sala plenerowa, 96 osób</small></p></div>
-                      <div class="dl-row"><span class="d" style="background:var(--crit-soft);color:var(--crit)"><b>5</b><small>czerwca</small></span><p>Blokada edycji<small>Wesele Anny i Michała, 12:00</small></p></div>
-                      <div class="dl-row"><span class="d" style="background:var(--good-soft);color:var(--good)"><b>12</b><small>czerwca</small></span><p>Wesele Anny i Michała<small>Sala Główna, 118 osób</small></p></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="shotf" data-chapter="2" data-type="desk" data-fx="62" data-fy="50" data-zoom="1.3">
+              <img src="assets/img/app/ankieta-1600.webp" srcset="assets/img/app/ankieta-960.webp 960w, assets/img/app/ankieta-1600.webp 1600w, assets/img/app/ankieta-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
             </div>
-
-            <!-- 5. Karta Realizacji -->
-            <div class="scene" data-scene="4">
-              <div class="kr">
-                <div class="kr-card">
-                  <div class="kr-top">
-                    <div>
-                      <div class="k">Karta Realizacji · EV-2027-0142</div>
-                      <h3>Wesele Anny i Michała</h3>
-                      <p>sobota, 12 czerwca 2027 · Sala Główna · 118 osób · start 16:30</p>
-                    </div>
-                    <div class="stamp" id="s4stamp"><b>Wersja 3 · wydana</b><small>zaakceptowane 8 czerwca</small></div>
-                  </div>
-                  <div class="tabs">
-                    <span class="tab" id="s4t0">Kuchnia</span>
-                    <span class="tab" id="s4t1">Obsługa</span>
-                    <span class="tab" id="s4t2">Bar</span>
-                    <span class="tab">Manager</span>
-                  </div>
-                  <div class="panes">
-                    <div class="pane" id="s4p0">
-                      <div class="kpis">
-                        <div class="kpi"><b>118</b><small>porcji</small></div>
-                        <div class="kpi"><b>6</b><small>wegetariańskich</small></div>
-                        <div class="kpi"><b>2</b><small>bezglutenowe</small></div>
-                        <div class="kpi alert"><b>1</b><small>alergia: orzechy · stół 4</small></div>
-                      </div>
-                      <div class="sched">
-                        <div class="sched-row"><time>17:30</time>Zupa · rosół z makaronem<span>118 porcji</span></div>
-                        <div class="sched-row"><time>18:00</time>Danie główne, półmiskowo · 5 pozycji<span>12 stołów</span></div>
-                        <div class="sched-row"><time>21:00</time>Dania gorące · bigos, gulasz węgierski<span>2 z 2</span></div>
-                        <div class="sched-row"><time>22:30</time>Tort · Cukiernia Sweet Bar<span>dostawa 20:00</span></div>
-                      </div>
-                    </div>
-                    <div class="pane" id="s4p1">
-                      <div class="kpis">
-                        <div class="kpi"><b>12</b><small>stołów okrągłych</small></div>
-                        <div class="kpi"><b>118</b><small>nakryć</small></div>
-                        <div class="kpi"><b>3</b><small>krzesełka dziecięce</small></div>
-                        <div class="kpi"><b>2</b><small>stoły serwisowe</small></div>
-                      </div>
-                      <div class="sched">
-                        <div class="sched-row"><time>14:00</time>Ustawienie sali · dekoracje biało-zielone<span>Dekor Studio</span></div>
-                        <div class="sched-row"><time>16:30</time>Powitanie Pary chlebem i solą<span>wejście główne</span></div>
-                        <div class="sched-row"><time>17:30</time>Serwis zupy · 6 kelnerów<span>od stołu Pary</span></div>
-                        <div class="sched-row"><time>20:00</time>Fotobudka · strefa przy tarasie<span>do 01:00</span></div>
-                      </div>
-                    </div>
-                    <div class="pane" id="s4p2">
-                      <div class="kpis">
-                        <div class="kpi"><b>30</b><small>wódka 0,5 l</small></div>
-                        <div class="kpi"><b>24</b><small>wino białe</small></div>
-                        <div class="kpi"><b>18</b><small>wino czerwone</small></div>
-                        <div class="kpi"><b>bez limitu</b><small>napoje i soki</small></div>
-                      </div>
-                      <div class="sched">
-                        <div class="sched-row"><time>16:30</time>Prosecco na powitanie<span>118 kieliszków</span></div>
-                        <div class="sched-row"><time>17:00</time>Napoje bezalkoholowe na stołach<span>dolewka na bieżąco</span></div>
-                        <div class="sched-row"><time>19:00</time>Alkohol na stołach · schłodzony<span>2 butelki / stół</span></div>
-                        <div class="sched-row"><time>22:00</time>Drink bar<span>do 02:00</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="shotf" data-chapter="2" data-type="desk" data-fx="58" data-fy="62" data-zoom="1.3">
+              <img src="assets/img/app/rozsadzenie-1600.webp" srcset="assets/img/app/rozsadzenie-960.webp 960w, assets/img/app/rozsadzenie-1600.webp 1600w, assets/img/app/rozsadzenie-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
             </div>
-
-            <div class="cursor off" id="cursor"><svg><use href="#i-cursor"/></svg></div>
+            <div class="shotf" data-chapter="3" data-type="desk" data-fx="100" data-fy="45" data-zoom="1.4">
+              <img src="assets/img/app/przeglad-wesela-1600.webp" srcset="assets/img/app/przeglad-wesela-960.webp 960w, assets/img/app/przeglad-wesela-1600.webp 1600w, assets/img/app/przeglad-wesela-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="shotf" data-chapter="4" data-type="desk" data-fx="55" data-fy="48" data-zoom="1.3">
+              <img src="assets/img/app/karty-realizacji-1600.webp" srcset="assets/img/app/karty-realizacji-960.webp 960w, assets/img/app/karty-realizacji-1600.webp 1600w, assets/img/app/karty-realizacji-2400.webp 2400w" sizes="(max-width: 700px) 100vw, 1700px" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="shotf" data-chapter="4" data-type="phone">
+              <img class="bg" src="assets/img/app/karty-realizacji-960.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+              <div class="handset"><img src="assets/img/app/tryb-dnia-900.webp" srcset="assets/img/app/tryb-dnia-480.webp 480w, assets/img/app/tryb-dnia-900.webp 900w" sizes="420px" width="900" height="1948" alt="" loading="lazy" decoding="async"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -361,8 +154,8 @@
           <span class="tc" id="tc">00:00</span>
         </div>
         <div class="film-cap">
-          <p class="now" id="now" aria-live="polite"><b>Utwórz wydarzenie.</b> <span>Manager dodaje wydarzenie i podstawowe informacje.</span></p>
-          <p class="free">Kolejność jest dowolna — pracujecie nad tym, co jest gotowe do ustalenia.</p>
+          <p class="now" id="now" aria-live="polite"><b>Utwórz wydarzenie.</b> <span>Termin trzymasz wstępną rezerwacją. Gdy zamawiający się zdecyduje, zamieniasz ją w wydarzenie.</span></p>
+          <p class="free">Prawdziwe ekrany programu na przykładowych danych.</p>
         </div>
       </figcaption>
     </figure>
@@ -387,7 +180,7 @@
       </ul>
       <div class="merged">
         <svg><use href="#i-check"/></svg>
-        <div><b>Wesele Anny i Michała w BIFOR</b><small>118 gości · menu 9 z 9 · 1 dieta bezglutenowa · tort zaakceptowany</small></div>
+        <div><b>Wesele Anny i Piotra w BIFOR</b><small>120 gości · 3 z 4 sekcji ankiety zatwierdzone · wycena w wersji 3 zaakceptowana</small></div>
         <span class="upd">zaktualizowano 2 min temu</span>
       </div>
     </div>
@@ -399,20 +192,20 @@
   <div class="wrap">
     <div class="sh">
       <h2 class="rv">Wszystko, czego potrzebujesz do przygotowania wydarzenia.</h2>
-      <p class="rv" style="--d:1">Każdy obszar wydarzenia ma swoje miejsce. Możesz przechodzić między nimi swobodnie — BIFOR pokazuje, co jest gotowe, a czego jeszcze brakuje.</p>
+      <p class="rv" style="--d:1">Każda część korzysta z tego, co już wpisane w pozostałych. Lista gości zasila wycenę, rozsadzenie i Karty Realizacji.</p>
     </div>
     <div class="feats">
-      <div class="feat rv" style="--d:0"><span class="num">01</span><h3>Goście</h3><p>Lista gości, RSVP, import, diety i alergie.</p></div>
-      <div class="feat rv" style="--d:1"><span class="num">02</span><h3>Stoły</h3><p>Plan sali i rozmieszczenie gości.</p></div>
-      <div class="feat rv" style="--d:2"><span class="num">03</span><h3>Menu</h3><p>Wybory zgodne z ofertą organizatora.</p></div>
-      <div class="feat rv" style="--d:3"><span class="num">04</span><h3>Dodatki</h3><p>Atrakcje i dodatkowe usługi.</p></div>
-      <div class="feat rv" style="--d:0"><span class="num">05</span><h3>Harmonogram</h3><p>Aktualny przebieg wydarzenia.</p></div>
-      <div class="feat rv" style="--d:1"><span class="num">06</span><h3>Dokumenty</h3><p>Materiały i dokumenty wydarzenia.</p></div>
-      <div class="feat rv" style="--d:2"><span class="num">07</span><h3>Płatności</h3><p>Kosztorys i rozliczenia.</p></div>
-      <div class="feat rv" style="--d:3"><span class="num">08</span><h3>Karta Realizacji</h3><p>Gotowe informacje dla zespołów realizacyjnych.</p></div>
+      <div class="feat rv" style="--d:0"><span class="num">01</span><h3>Kalendarz i wydarzenia</h3><p>Cały miesiąc sali na jednym ekranie. Termin trzymasz wstępną rezerwacją, a program ostrzega o kolizjach.</p></div>
+      <div class="feat rv" style="--d:1"><span class="num">02</span><h3>Ankieta</h3><p>Pytania o dekoracje, tort czy muzykę w sekcjach z terminami. Zamawiający odpowiada sam, Ty zatwierdzasz.</p></div>
+      <div class="feat rv" style="--d:2"><span class="num">03</span><h3>Goście i plan stołów</h3><p>Goście odpowiadają przez link, bez zakładania konta. Sadzacie ich na planie Twojej sali.</p></div>
+      <div class="feat rv" style="--d:3"><span class="num">04</span><h3>Menu, atrakcje i wycena</h3><p>Pakiety z ceną za osobę i cennik atrakcji. Wycena liczy się z menu i listy gości.</p></div>
+      <div class="feat rv" style="--d:0"><span class="num">05</span><h3>Płatności</h3><p>Harmonogram z zaakceptowanej wyceny. Zamawiający zgłasza przelew, Ty potwierdzasz wpłatę.</p></div>
+      <div class="feat rv" style="--d:1"><span class="num">06</span><h3>Dokumenty i Karty Realizacji</h3><p>Umowy i pliki przy przyjęciu. Karty Realizacji dla managera, personelu i usługodawców.</p></div>
+      <div class="feat rv" style="--d:2"><span class="num">07</span><h3>Zespół i grafik</h3><p>Widzisz, którym przyjęciom brakuje ludzi. Pracownicy sami zgłaszają się na wolne zmiany.</p></div>
+      <div class="feat rv" style="--d:3"><span class="num">08</span><h3>Zamawiający w telefonie</h3><p>Zamawiający ma swoje wydarzenie na komputerze i w telefonie, bez instalowania czegokolwiek.</p></div>
     </div>
     <div class="feats-more rv">
-      <p>A także: kontakty i usługodawcy, dekoracje, napoje i alkohole, tort i desery, noclegi, wiadomości i historia zmian oraz podsumowanie wydarzenia.</p>
+      <p>A także: przypomnienia e-mailem i SMS-em, historia zmian, import wydarzeń z Excela i kalendarza, menu z pliku Word oraz druki: plan rozsadzenia, winietki i tablica przy wejściu.</p>
       <a class="link" href="dolacz.html" data-track="cta_start_click" data-place="features">Rozpocznij z BIFOR →</a>
     </div>
   </div>
@@ -423,28 +216,28 @@
   <div class="wrap once">
     <div class="txt">
       <h2 class="rv">Informację wpisujesz raz.</h2>
-      <p class="rv" style="--d:1">BIFOR wykorzystuje te same dane wszędzie tam, gdzie są potrzebne. Jeżeli zmienia się liczba gości, nie poprawiasz jej ręcznie w kilku plikach.</p>
+      <p class="rv" style="--d:1">BIFOR wykorzystuje te same dane wszędzie tam, gdzie są potrzebne. Gdy zmienia się liczba gości, program przelicza to, co może, i pokazuje, co czeka na Twoją decyzję.</p>
       <p class="claim rv" style="--d:2">Mniej przepisywania. Mniej błędów.<br>Jedna aktualna wersja danych.</p>
       <p class="try rv" style="--d:3"><svg><use href="#i-arrow"/></svg>Zmień liczbę gości i zobacz, co się dzieje.</p>
     </div>
     <div class="calc rv" style="--d:1">
       <div class="calc-in">
         <div class="calc-top">
-          <div class="l"><small>WESELE ANNY I MICHAŁA</small><b>Liczba gości</b></div>
+          <div class="l"><small>PRZYKŁADOWE WESELE</small><b>Liczba gości</b></div>
           <div class="stepper">
             <button type="button" data-step="-1" aria-label="Zmniejsz liczbę gości">−</button>
-            <output id="gOut" for="gRange" aria-live="polite">118</output>
+            <output id="gOut" for="gRange" aria-live="polite">120</output>
             <button type="button" data-step="1" aria-label="Zwiększ liczbę gości">+</button>
           </div>
         </div>
-        <input class="range" type="range" id="gRange" min="40" max="200" value="118" aria-label="Liczba gości">
+        <input class="range" type="range" id="gRange" min="40" max="200" value="120" aria-label="Liczba gości">
         <div class="range-scale"><span>40</span><span>200</span></div>
       </div>
       <ul class="outs">
-        <li id="oT"><span class="l">Stoły<small>plan sali</small></span><span class="v" id="vT">12 stołów po 10 osób</span></li>
-        <li id="oP"><span class="l">Kuchnia<small>menu i porcje</small></span><span class="v" id="vP">118 porcji</span></li>
-        <li id="oC"><span class="l">Kosztorys<small>360 zł / os. + dodatki</small></span><span class="v" id="vC">44 604 zł</span></li>
-        <li id="oK"><span class="l">Karta Realizacji<small>dla kuchni, obsługi i baru</small></span><span class="v" id="vK"><em class="st st-good">aktualna · wersja 3</em></span></li>
+        <li id="oC"><span class="l">Wycena robocza<small>przykładowy pakiet 420 zł / os.</small></span><span class="v" id="vC">50 400 zł</span></li>
+        <li id="oT"><span class="l">Rozsadzenie<small>plan sali</small></span><span class="v" id="vT">wszyscy przy stołach</span></li>
+        <li id="oP"><span class="l">Zaakceptowana wycena<small>zmienia ją tylko nowa wersja</small></span><span class="v" id="vP">bez zmian</span></li>
+        <li id="oK"><span class="l">Karty Realizacji<small>dla managera, personelu i usługodawców</small></span><span class="v" id="vK"><em class="st st-good">Aktualna</em></span></li>
       </ul>
     </div>
   </div>
@@ -459,20 +252,20 @@
     </div>
     <div class="roles">
       <ul class="role-tabs" role="tablist" aria-label="Role w wydarzeniu" id="roleTabs">
-        <li><button role="tab" id="rt0" aria-selected="true" aria-controls="rolePanel" data-role="0"><b>Organizator</b><small>Zarządza całością wydarzenia.</small><svg><use href="#i-arrow"/></svg></button></li>
-        <li><button role="tab" id="rt1" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="1"><b>Zamawiający</b><small>Uzupełnia udostępnione informacje.</small><svg><use href="#i-arrow"/></svg></button></li>
-        <li><button role="tab" id="rt2" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="2"><b>Wedding planner</b><small>Może współprowadzić wydarzenie.</small><svg><use href="#i-arrow"/></svg></button></li>
-        <li><button role="tab" id="rt3" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="3"><b>Usługodawca</b><small>Otrzymuje tylko potrzebny zakres danych.</small><svg><use href="#i-arrow"/></svg></button></li>
-        <li><button role="tab" id="rt4" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="4"><b>Zespół realizacyjny</b><small>Otrzymuje informacje potrzebne do swojej pracy.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt0" aria-selected="true" aria-controls="rolePanel" data-role="0"><b>Sala</b><small>Prowadzi wydarzenie: zatwierdza, wycenia, potwierdza wpłaty.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt1" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="1"><b>Zamawiający</b><small>Wypełnia ankietę, prowadzi listę gości, wybiera menu.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt2" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="2"><b>Współorganizator</b><small>Pomaga zamawiającemu, na przykład świadkowa.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt3" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="3"><b>Usługodawca</b><small>Widzi swoje pytania i swoje punkty dnia.</small><svg><use href="#i-arrow"/></svg></button></li>
+        <li><button role="tab" id="rt4" aria-selected="false" aria-controls="rolePanel" tabindex="-1" data-role="4"><b>Personel</b><small>Pracuje przy wydarzeniu w zakresie swojej roli.</small><svg><use href="#i-arrow"/></svg></button></li>
       </ul>
       <div class="view rv" id="rolePanel" role="tabpanel" aria-labelledby="rt0">
         <div class="view-h">
-          <span class="av av-b" id="rAv">KN</span>
-          <div><b id="rName">Katarzyna Nowak</b><small id="rRole">Organizator · manager obiektu</small></div>
-          <div class="ev">Wesele Anny i Michała<small>12.06.2027</small></div>
+          <span class="av av-b" id="rAv">MN</span>
+          <div><b id="rName">Magdalena Nowak</b><small id="rRole">Manager · zespół sali</small></div>
+          <div class="ev">Wesele Anny i Piotra<small>19.12.2026</small></div>
         </div>
         <ul class="acc" id="rAcc"></ul>
-        <div class="view-f" id="rFoot">Pełna kontrola nad wydarzeniem, zaproszeniami i uprawnieniami.</div>
+        <div class="view-f" id="rFoot">Zatwierdza ustalenia, wystawia wycenę i potwierdza wpłaty. Każda zmiana zostaje w historii.</div>
       </div>
     </div>
   </div>
@@ -483,7 +276,7 @@
   <div class="wrap">
     <div class="sh">
       <h2 class="rv">Organizujesz w BIFOR. Realizujesz z BIFOR.</h2>
-      <p class="rv" style="--d:1">Informacje zebrane podczas przygotowań automatycznie tworzą dane potrzebne managerowi, kuchni, obsłudze, barowi i pozostałym zespołom.</p>
+      <p class="rv" style="--d:1">Z ustaleń powstają dane, których zespół sali potrzebuje w dniu przyjęcia. Nikt nie przepisuje ich na kartki.</p>
     </div>
     <div class="flow rv" id="flow">
       <span class="node">Ustalenia</span><span class="arrow"></span>
@@ -493,21 +286,21 @@
     <div class="teams">
       <article class="team rv">
         <div class="ph"><img src="assets/img/kuchnia.jpg" alt="Kucharz wykańcza danie na talerzu w kuchni" loading="lazy" width="900" height="600"></div>
-        <h3>Kuchnia</h3>
-        <ul><li>liczba osób i porcji</li><li>menu, diety i alergie</li><li>godziny serwisu, tort</li></ul>
+        <h3>Karty Realizacji</h3>
+        <ul><li>dla managera, personelu i usługodawców</li><li>harmonogram, liczby gości i rozsadzenie</li><li>u managera i personelu też menu i obsada</li></ul>
       </article>
       <article class="team rv" style="--d:1">
         <div class="ph"><img src="assets/img/obsluga.jpg" alt="Kelner niosący tacę z talerzami podczas przyjęcia" loading="lazy" width="900" height="1350"></div>
-        <h3>Obsługa</h3>
-        <ul><li>ustawienie sali i plan stołów</li><li>dekoracje i harmonogram</li><li>dodatki i uwagi operacyjne</li></ul>
+        <h3>Tryb dnia</h3>
+        <ul><li>co trwa teraz i co będzie dalej</li><li>kto ma być na miejscu</li><li>opóźnienia widać od razu, w telefonie</li></ul>
       </article>
       <article class="team rv" style="--d:2">
         <div class="ph"><img src="assets/img/bar.jpg" alt="Barman nalewający napój do shakera" loading="lazy" width="900" height="1350"></div>
-        <h3>Bar</h3>
-        <ul><li>napoje i alkohole</li><li>ilości i sposób podania</li><li>godziny serwisu</li></ul>
+        <h3>Obsada</h3>
+        <ul><li>widać, gdzie brakuje kelnera czy barmana</li><li>pracownicy zgłaszają się na zmiany z telefonu</li><li>o przydziale decydujesz Ty</li></ul>
       </article>
     </div>
-    <div class="mgr rv"><b>Manager</b><span>ma pełny obraz wydarzenia — i wie, która wersja Karty jest aktualna.</span></div>
+    <div class="mgr rv"><b>Manager</b><span>widzi, które Karty są aktualne, i generuje nowe, gdy ustalenia się zmienią.</span></div>
   </div>
 </section>
 
@@ -524,6 +317,32 @@
     </div>
     <div class="ph rv" style="--d:1"><img src="assets/img/stol.jpg" alt="Nakryty okrągły stół z numerem 18 na sali bankietowej" loading="lazy" width="1000" height="667"></div>
   </div>
+
+  <div class="wrap team-wrap">
+    <h3 class="team-h rv">Ludzie, którzy za tym stoją</h3>
+    <div class="people">
+      <article class="person rv">
+        <div class="portrait todo" aria-hidden="true"><span>zdjęcie</span></div>
+        <div>
+          <h4>Marcin Kolanek</h4>
+          <p class="role">Prowadzi BIFOR</p>
+          <p class="bio todo-text">Do uzupełnienia: ile lat prowadził przyjęcia jako manager, ile wydarzeń ma za sobą i za co odpowiada w BIFOR.</p>
+        </div>
+      </article>
+      <article class="person rv" style="--d:1">
+        <div class="portrait todo" aria-hidden="true"><span>zdjęcie</span></div>
+        <div>
+          <h4>Marek Molski</h4>
+          <p class="role todo-text">Stanowisko do uzupełnienia</p>
+          <p class="bio todo-text">Do uzupełnienia: doświadczenie w prowadzeniu obiektu i rola w BIFOR.</p>
+        </div>
+      </article>
+    </div>
+    <div class="cta-inline rv">
+      <p>O programie opowie Ci ktoś, kto zna tę pracę od środka.</p>
+      <a class="btn btn-primary" href="dolacz.html" data-track="cta_start_click" data-place="team">Rozpocznij z BIFOR <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ DLA KOGO ============ -->
@@ -538,7 +357,7 @@
         <li class="rv" style="--d:3"><b>Wedding plannerzy</b><span>Osoby organizujące wydarzenia dla klientów.</span></li>
         <li class="rv" style="--d:4"><b>Agencje eventowe</b><span>Firmy prowadzące wydarzenia prywatne i biznesowe.</span></li>
       </ul>
-      <p class="types rv">Wesela · komunie · chrzciny · jubileusze · urodziny · eventy firmowe · konferencje</p>
+      <p class="types rv">Wesela · osiemnastki · urodziny · komunie · chrzciny · imprezy firmowe</p>
     </div>
   </div>
 </section>
@@ -553,12 +372,14 @@
     </div>
     <div class="qa rv" style="--d:1">
       <details open><summary>Czym jest BIFOR?<i></i></summary><div class="ans"><p>BIFOR to oprogramowanie, które porządkuje cały proces ustaleń dotyczących wydarzenia w jednym miejscu.</p></div></details>
-      <details><summary>Czy BIFOR jest tylko dla sal weselnych?<i></i></summary><div class="ans"><p>Nie. BIFOR jest przeznaczony dla różnych organizatorów wydarzeń, w tym obiektów, restauracji, managerów, wedding plannerów i agencji eventowych.</p></div></details>
-      <details><summary>Czy Zamawiający otrzymuje własny dostęp?<i></i></summary><div class="ans"><p>Tak. Organizator może zaprosić klienta do konkretnego wydarzenia.</p></div></details>
-      <details><summary>Czy klient widzi wszystkie informacje?<i></i></summary><div class="ans"><p>Nie. Zakres widoczności zależy od jego roli i uprawnień.</p></div></details>
-      <details><summary>Czy można zaprosić usługodawcę?<i></i></summary><div class="ans"><p>Tak. Usługodawca może otrzymać ograniczony dostęp do informacji potrzebnych do swojej pracy.</p></div></details>
-      <details><summary>Czy BIFOR można dopasować do konkretnego obiektu?<i></i></summary><div class="ans"><p>Tak. Organizacja może skonfigurować m.in. własne przestrzenie, menu, cenniki, pakiety, dodatki i zasady pracy.</p></div></details>
-      <details><summary>Czy BIFOR jest gotowy do użycia?<i></i></summary><div class="ans"><p>BIFOR jest przygotowanym i testowanym oprogramowaniem gotowym do kolejnych wdrożeń.</p></div></details>
+      <details><summary>Czy BIFOR jest tylko dla sal weselnych?<i></i></summary><div class="ans"><p>Nie. Korzystają z niego sale, restauracje i obiekty, które przyjmują wesela, osiemnastki, urodziny, komunie, chrzciny i imprezy firmowe.</p></div></details>
+      <details><summary>Czy muszę coś instalować?<i></i></summary><div class="ans"><p>Nie. BIFOR działa w przeglądarce, na komputerze i na telefonie.</p></div></details>
+      <details><summary>Czy Zamawiający otrzymuje własny dostęp?<i></i></summary><div class="ans"><p>Tak. Zapraszasz go e-mailem do konkretnego wydarzenia. Ma je na komputerze i w telefonie.</p></div></details>
+      <details><summary>Czy goście muszą zakładać konto?<i></i></summary><div class="ans"><p>Nie. Odpowiadają przez link z e-maila albo SMS-a.</p></div></details>
+      <details><summary>Czy można zaprosić usługodawcę?<i></i></summary><div class="ans"><p>Tak. DJ, fotograf czy dekorator widzi swoje pytania, swoje punkty dnia i swoją Kartę Realizacji. Listy gości i pieniędzy nie widzi.</p></div></details>
+      <details><summary>Czy pieniądze przechodzą przez BIFOR?<i></i></summary><div class="ans"><p>Nie. Pieniądze trafiają bezpośrednio na konto sali, a BIFOR nie pośredniczy w płatnościach.</p></div></details>
+      <details><summary>Mam rezerwacje w kalendarzu i w Excelu. Co z nimi?<i></i></summary><div class="ans"><p>Przeniesiesz je importem. Przed zapisem widzisz każdy wiersz. Menu wczytasz z pliku Word.</p></div></details>
+      <details><summary>Ile kosztuje BIFOR?<i></i></summary><div class="ans"><p>Cenę ustalamy po krótkiej rozmowie o Twojej sali.</p></div></details>
       <details><summary>Jak rozpocząć korzystanie?<i></i></summary><div class="ans"><p>Wypełnij formularz „Rozpocznij z BIFOR”. Skontaktujemy się w sprawie uruchomienia konta.</p></div></details>
     </div>
   </div>

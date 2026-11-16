@@ -74,11 +74,13 @@
     watched.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- „Informację wpisujesz raz” ---------- */
+  /* ---------- „Informację wpisujesz raz” ----------
+     Pokazuje, co program robi po zmianie liczby gości: wycena robocza liczy
+     się od razu, a zaakceptowana wycena i Karty Realizacji czekają na salę. */
   var range = document.getElementById('gRange');
   if (range) {
     var out = document.getElementById('gOut');
-    var BASE = 118, PRICE = 360, EXTRAS = 2124, PER_TABLE = 10;
+    var BASE = 120, PRICE = 420;
     var fmt = new Intl.NumberFormat('pl-PL');
     var interacted = false;
     var prev = null;
@@ -96,14 +98,17 @@
     function render(n) {
       out.textContent = n;
       range.value = n;
-      var tables = Math.ceil(n / PER_TABLE);
-      document.getElementById('vT').textContent = tables + ' ' + plural(tables, 'stół', 'stoły', 'stołów') + ' po ' + PER_TABLE + ' osób';
-      document.getElementById('vP').textContent = n + ' ' + plural(n, 'porcja', 'porcje', 'porcji');
-      document.getElementById('vC').textContent = fmt.format(n * PRICE + EXTRAS) + ' zł';
-      document.getElementById('vK').innerHTML = n === BASE
-        ? '<em class="st st-good">aktualna · wersja 3</em>'
-        : '<em class="st st-crit">do aktualizacji · wersja 4</em>';
-      if (prev !== null && prev !== n) ['oT', 'oP', 'oC', 'oK'].forEach(flash);
+      var diff = n - BASE, k = Math.abs(diff);
+      document.getElementById('vC').textContent = fmt.format(n * PRICE) + ' zł';
+      document.getElementById('vT').textContent = diff === 0 ? 'wszyscy przy stołach'
+        : diff > 0 ? k + ' ' + plural(k, 'gość', 'gości', 'gości') + ' bez miejsca'
+        : k + ' ' + plural(k, 'wolne miejsce', 'wolne miejsca', 'wolnych miejsc');
+      document.getElementById('vP').innerHTML = diff === 0 ? 'bez zmian'
+        : '<em class="st st-warn">czeka na nową wersję</em>';
+      document.getElementById('vK').innerHTML = diff === 0
+        ? '<em class="st st-good">Aktualna</em>'
+        : '<em class="st st-crit">Nieaktualna</em>';
+      if (prev !== null && prev !== n) ['oC', 'oT', 'oP', 'oK'].forEach(flash);
       prev = n;
     }
     function set(n) {
@@ -118,27 +123,35 @@
     render(BASE);
   }
 
-  /* ---------- role ---------- */
+  /* ---------- role ----------
+     Kto co widzi przy jednym przyjęciu — według tabeli uprawnień programu. */
   var tabs = document.querySelectorAll('#roleTabs [role="tab"]');
   if (tabs.length) {
     var SECTIONS = [
-      ['Dane wydarzenia', 'i-cal'], ['Lista gości i RSVP', 'i-users'], ['Stoły', 'i-grid'], ['Menu, diety i alergie', 'i-fork'],
-      ['Dodatki i atrakcje', 'i-gift'], ['Harmonogram', 'i-clock'], ['Finanse', 'i-cash'], ['Dokumenty', 'i-doc'], ['Karta Realizacji', 'i-note']
+      ['Ankieta', 'i-note'], ['Lista gości i rozsadzenie', 'i-users'], ['Menu i wycena', 'i-fork'],
+      ['Płatności', 'i-cash'], ['Harmonogram dnia', 'i-clock'], ['Pliki', 'i-doc'],
+      ['Notatka wewnętrzna i obsada', 'i-lock']
     ];
-    // e = edycja, v = podgląd, h = niewidoczne
+    // poziom: e = działa, v = widzi część, h = nie widzi; obok etykieta z programu
     var ROLES = [
-      { av: 'KN', c: 'av-b', name: 'Katarzyna Nowak', role: 'Organizator · manager obiektu', a: 'eeeeeeeee',
-        foot: 'Pełna kontrola nad wydarzeniem, zaproszeniami i uprawnieniami.' },
-      { av: 'AW', c: 'av-g', name: 'Anna Wójcik', role: 'Zamawiający · Para Młoda', a: 'veeeevvvh',
-        foot: 'Uzupełnia to, co udostępnił organizator. Dane trafiają prosto do wydarzenia.' },
-      { av: 'JL', c: 'av-w', name: 'Julia Lis', role: 'Wedding planner', a: 'eeeveehev',
-        foot: 'Współprowadzi wydarzenie razem z obiektem i Parą — bez osobnych plików.' },
-      { av: 'DJ', c: 'av-c', name: 'DJ Marcin', role: 'Usługodawca · oprawa muzyczna', a: 'vhhhhvhvh',
-        foot: 'Widzi tylko harmonogram, dane kontaktowe i swoje dokumenty.' },
-      { av: 'KU', c: 'av-b', name: 'Kuchnia', role: 'Zespół realizacyjny', a: 'vvvvhvhhv',
-        foot: 'Dostaje liczby, diety, alergie i godziny serwisu — gotowe do pracy.' }
+      { av: 'MN', c: 'av-b', name: 'Magdalena Nowak', role: 'Manager · zespół sali',
+        a: [['e', 'Zatwierdza'], ['e', 'Pełny dostęp'], ['e', 'Wystawia wycenę'], ['e', 'Potwierdza wpłaty'], ['e', 'Układa'], ['e', 'Udostępnia'], ['e', 'Tylko zespół sali']],
+        foot: 'Zatwierdza ustalenia, wystawia wycenę i potwierdza wpłaty. Każda zmiana zostaje w historii.' },
+      { av: 'AK', c: 'av-g', name: 'Anna Kowalska', role: 'Zamawiająca',
+        a: [['e', 'Odpowiada'], ['e', 'Prowadzi'], ['e', 'Wybiera i akceptuje'], ['e', 'Zgłasza przelewy'], ['v', 'Swoja część'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
+        foot: 'Ma swoje wydarzenie na komputerze i w telefonie. Zmianę po terminie wysyła jako prośbę.' },
+      { av: 'KW', c: 'av-w', name: 'Karolina Wiśniewska', role: 'Współorganizatorka · świadkowa',
+        a: [['e', 'Odpowiada'], ['e', 'Prowadzi'], ['v', 'Tylko do wglądu'], ['h', 'Nie widzi'], ['v', 'Swoja część'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
+        foot: 'Pomaga przy ankiecie i liście gości. Płatności zostają po stronie zamawiającej.' },
+      { av: 'DJ', c: 'av-c', name: 'DJ Tomasz', role: 'Usługodawca · oprawa muzyczna',
+        a: [['v', 'Swoje pytania'], ['h', 'Tylko liczby gości'], ['h', 'Nie widzi'], ['h', 'Nie widzi'], ['v', 'Swoje punkty'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
+        foot: 'Widzi swoje pytania, swoje punkty dnia i swoją Kartę Realizacji. Listy gości i pieniędzy nie widzi.' },
+      { av: 'PS', c: 'av-b', name: 'Personel sali', role: 'Zespół sali',
+        a: [['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli']],
+        foot: 'Widzi tyle, ile daje mu rola w zespole. W dniu przyjęcia ma tryb dnia w telefonie.' }
     ];
-    var LV = { e: ['lv-e', 'Edycja', 'i-pen'], v: ['lv-v', 'Podgląd', 'i-eye'], h: ['lv-h', 'Niewidoczne', 'i-lock'] };
+    var LV = { e: 'lv-e', v: 'lv-v', h: 'lv-h' };
+    var COLOR = { e: 'var(--brand)', v: 'var(--ink-2)', h: 'var(--ink-3)' };
     var acc = document.getElementById('rAcc');
     var av = document.getElementById('rAv');
 
@@ -156,12 +169,11 @@
       document.getElementById('rRole').textContent = r.role;
       document.getElementById('rFoot').textContent = r.foot;
       acc.innerHTML = SECTIONS.map(function (s, k) {
-        var l = LV[r.a[k]];
-        var color = r.a[k] === 'h' ? 'var(--ink-3)' : (r.a[k] === 'e' ? 'var(--brand)' : 'var(--ink-2)');
-        return '<li class="' + (r.a[k] === 'h' ? 'hidden ' : '') + 'tick" style="animation-delay:' + (k * 30) + 'ms">' +
-          '<svg style="color:' + color + '"><use href="#' + s[1] + '"/></svg>' +
+        var lvl = r.a[k][0];
+        return '<li class="' + (lvl === 'h' ? 'hidden ' : '') + 'tick" style="animation-delay:' + (k * 30) + 'ms">' +
+          '<svg style="color:' + COLOR[lvl] + '"><use href="#' + s[1] + '"/></svg>' +
           '<span class="nm">' + s[0] + '</span>' +
-          '<span class="lv ' + l[0] + '">' + l[1] + '</span></li>';
+          '<span class="lv ' + LV[lvl] + '">' + r.a[k][1] + '</span></li>';
       }).join('');
     }
     tabs.forEach(function (t, i) {
