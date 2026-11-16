@@ -331,6 +331,9 @@ button{font:inherit; color:inherit}
 @media (max-width:900px){ .exp{grid-template-columns:1fr; gap:48px} .exp .ph{aspect-ratio:16/10} }
 @media (max-width:480px){ .proc{columns:1} }
 
+.ph-fig{margin:0}
+.ph-fig figcaption{margin-top:12px; font-size:14px; color:var(--ink-3)}
+
 /* zespół */
 .team-wrap{margin-top:88px}
 .team-h{font-size:clamp(24px,3vw,34px); letter-spacing:-.03em; padding-top:40px; border-top:1px solid var(--line)}
