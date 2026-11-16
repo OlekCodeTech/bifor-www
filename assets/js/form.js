@@ -30,13 +30,11 @@
     first_name: function (v) { return v.trim().length >= 2; },
     last_name: function (v) { return v.trim().length >= 2; },
     email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
-    phone: function (v) { return v.replace(/\D/g, '').length >= 9 && /^[\d\s+()-]+$/.test(v.trim()); },
+    // pola opcjonalne: puste przechodzą, wypełnione muszą mieć sens
+    phone: function (v) { v = v.trim(); return !v || (v.replace(/\D/g, '').length >= 9 && /^[\d\s+()-]+$/.test(v)); },
     company: function (v) { return v.trim().length >= 2; },
-    street: function (v) { return v.trim().length >= 3; },
-    postal_code: function (v) { return /^\d{2}-\d{3}$/.test(v.trim()); },
-    city: function (v) { return v.trim().length >= 2; },
+    postal_code: function (v) { v = v.trim(); return !v || /^\d{2}-\d{3}$/.test(v); },
     website: function (v) { v = v.trim(); return !v || /^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v); },
-    role: function () { return !!form.querySelector('input[name="role"]:checked'); },
     consent_rodo: function () { return form.elements.consent_rodo.checked; }
   };
 
@@ -77,7 +75,6 @@
 
   form.querySelectorAll('input[name="role"]').forEach(function (r) {
     r.addEventListener('change', function () {
-      check('role');
       track('join_role_selected', { role: r.value });
     });
   });

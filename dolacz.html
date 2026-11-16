@@ -6,6 +6,9 @@
 <meta name="robots" content="noindex, nofollow"><!-- podgląd: usunąć przy starcie produkcji -->
 <title>Rozpocznij z BIFOR — zgłoszenie uruchomienia konta</title>
 <meta name="description" content="Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.">
+<meta property="og:title" content="Rozpocznij z BIFOR">
+<meta property="og:image" content="https://olekcodetech.github.io/bifor-www/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#6F5BD8">
 <link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,10 +59,11 @@
       <h1 class="rv">Rozpocznij z&nbsp;BIFOR</h1>
       <p class="lead rv" style="--d:1">Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.</p>
       <ol class="next rv" style="--d:2">
-        <li><div>Wypełniasz formularz<small>zajmie około 2 minut</small></div></li>
+        <li><div>Wypełniasz formularz<small>wystarczą imię, nazwa obiektu i e-mail</small></div></li>
         <li><div>Kontaktujemy się z Tobą<small>omawiamy, jak pracujecie przy wydarzeniach</small></div></li>
         <li><div>Uruchamiamy BIFOR<small>konfiguracja sal, menu, cenników i zasad pracy</small></div></li>
       </ol>
+      <p class="cta-direct rv" style="--d:3">Wolisz porozmawiać? Zadzwoń: <a href="tel:+48510400388" data-track="phone_click" data-place="join">510 400 388</a></p>
       <div class="ph rv" style="--d:3"><img src="assets/img/avocado/sala-plenerowa.webp" alt="Sala plenerowa Restauracji Avocado z nakrytymi stołami" width="1400" height="933"></div>
     </aside>
 
@@ -83,16 +87,16 @@
             <div class="f"><label for="first_name">Imię <span class="req" aria-hidden="true">*</span></label><input id="first_name" name="first_name" autocomplete="given-name" required maxlength="60"><span class="err" id="first_name-err">Podaj imię.</span></div>
             <div class="f"><label for="last_name">Nazwisko <span class="req" aria-hidden="true">*</span></label><input id="last_name" name="last_name" autocomplete="family-name" required maxlength="80"><span class="err" id="last_name-err">Podaj nazwisko.</span></div>
             <div class="f"><label for="email">E-mail <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="anna@twojlokal.pl"><span class="err" id="email-err">Podaj poprawny adres e-mail, np. anna@twojlokal.pl.</span></div>
-            <div class="f"><label for="phone">Telefon <span class="req" aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="500 600 700"><span class="err" id="phone-err">Podaj numer telefonu — co najmniej 9 cyfr.</span></div>
+            <div class="f"><label for="phone">Telefon <span class="opt">(opcjonalnie)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="500 600 700"><span class="err" id="phone-err">Wpisz co najmniej 9 cyfr albo zostaw pole puste.</span></div>
           </div>
         </fieldset>
 
         <fieldset class="fs">
-          <legend class="fs-h">Rola<small>Co najlepiej opisuje Twoją pracę?</small></legend>
+          <legend class="fs-h">Rola<small>Opcjonalnie. Co najlepiej opisuje Twoją pracę?</small></legend>
           <div class="fs-body">
             <div class="f full" id="role-field">
-              <span class="lbl" id="role-lbl">Twoja rola <span class="req" aria-hidden="true">*</span></span>
-              <div class="radios" role="radiogroup" aria-labelledby="role-lbl" aria-required="true">
+              <span class="lbl" id="role-lbl">Twoja rola <span class="opt">(opcjonalnie)</span></span>
+              <div class="radios" role="radiogroup" aria-labelledby="role-lbl">
                 <div class="radio"><input type="radio" name="role" id="r1" value="wlasciciel_obiektu"><label for="r1">Właściciel / właścicielka obiektu</label></div>
                 <div class="radio"><input type="radio" name="role" id="r2" value="manager"><label for="r2">Manager / managerka</label></div>
                 <div class="radio"><input type="radio" name="role" id="r3" value="wedding_planner"><label for="r3">Wedding planner</label></div>
@@ -108,14 +112,14 @@
         </fieldset>
 
         <fieldset class="fs">
-          <legend class="fs-h">Organizacja<small>Firma lub lokal, w którym uruchomimy BIFOR.</small></legend>
+          <legend class="fs-h">Organizacja<small>Wystarczy nazwa. Adres możesz podać później.</small></legend>
           <div class="fs-body">
             <div class="f full"><label for="company">Nazwa firmy / lokalu <span class="req" aria-hidden="true">*</span></label><input id="company" name="company" autocomplete="organization" required maxlength="120"><span class="err" id="company-err">Podaj nazwę firmy lub lokalu.</span></div>
-            <div class="f full"><label for="street">Ulica i numer <span class="req" aria-hidden="true">*</span></label><input id="street" name="street" autocomplete="address-line1" required maxlength="120"><span class="err" id="street-err">Podaj ulicę i numer.</span></div>
+            <div class="f full"><label for="street">Ulica i numer <span class="opt">(opcjonalnie)</span></label><input id="street" name="street" autocomplete="address-line1" maxlength="120"><span class="err" id="street-err">Podaj ulicę i numer.</span></div>
           </div>
           <div class="fs-body zip">
-            <div class="f"><label for="postal_code">Kod pocztowy <span class="req" aria-hidden="true">*</span></label><input id="postal_code" name="postal_code" autocomplete="postal-code" inputmode="numeric" required maxlength="6" placeholder="00-000"><span class="err" id="postal_code-err">Wpisz kod w formacie 00-000.</span></div>
-            <div class="f"><label for="city">Miasto <span class="req" aria-hidden="true">*</span></label><input id="city" name="city" autocomplete="address-level2" required maxlength="80"><span class="err" id="city-err">Podaj miasto.</span></div>
+            <div class="f"><label for="postal_code">Kod pocztowy <span class="opt">(opcjonalnie)</span></label><input id="postal_code" name="postal_code" autocomplete="postal-code" inputmode="numeric" maxlength="6" placeholder="00-000"><span class="err" id="postal_code-err">Wpisz kod w formacie 00-000 albo zostaw pole puste.</span></div>
+            <div class="f"><label for="city">Miasto <span class="opt">(opcjonalnie)</span></label><input id="city" name="city" autocomplete="address-level2" maxlength="80"><span class="err" id="city-err">Podaj miasto.</span></div>
           </div>
         </fieldset>
 
@@ -175,6 +179,7 @@
       <div class="ft-brand">
         <a href="index.html" class="logo" aria-label="BIFOR — strona główna"><img src="assets/img/logo/bifor-logo.svg" alt="BIFOR" width="104" height="27"></a>
         <p>Wszystkie ustalenia wydarzenia. Jedno miejsce.</p>
+        <p class="ft-social"><a href="https://www.instagram.com/bifor.pl/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/biforpl" target="_blank" rel="noopener">Facebook</a></p>
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
       <div><h4>Start</h4><ul><li><a href="dolacz.html">Rozpocznij z BIFOR</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>

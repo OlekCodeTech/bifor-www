@@ -51,6 +51,7 @@ def footer(active):
       <div class="ft-brand">
         <a href="index.html" class="logo" aria-label="BIFOR — strona główna"><img src="assets/img/logo/bifor-logo.svg" alt="BIFOR" width="104" height="27"></a>
         <p>Wszystkie ustalenia wydarzenia. Jedno miejsce.</p>
+        <p class="ft-social"><a href="https://www.instagram.com/bifor.pl/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/biforpl" target="_blank" rel="noopener">Facebook</a></p>
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
       <div><h4>Start</h4><ul><li><a href="dolacz.html">Rozpocznij z BIFOR</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
