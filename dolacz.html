@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><!-- podgląd: usunąć przy starcie produkcji -->
-<title>Rozpocznij z BIFOR — zgłoszenie uruchomienia konta</title>
-<meta name="description" content="Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.">
-<meta property="og:title" content="Rozpocznij z BIFOR">
+<meta name="robots" content="noindex, nofollow"><!-- podgląd: wersja produkcyjna (tools/build-prod.py) usuwa tę linię -->
+<title>Umów prezentację — BIFOR</title>
+<meta name="description" content="Zostaw kontakt i kilka informacji o swoim obiekcie. Pokażemy BIFOR na przykładowym wydarzeniu i omówimy uruchomienie.">
+<meta property="og:title" content="Umów prezentację BIFOR">
 <meta property="og:image" content="https://olekcodetech.github.io/bifor-www/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#6F5BD8">
 <link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -35,7 +34,7 @@
       <a href="index.html#jak-dziala">Jak działa</a>
       <a href="index.html#funkcje">Funkcje</a>
       <a href="index.html#role">Role</a>
-      <a href="index.html#dla-kogo">Dla kogo</a>
+      <a href="index.html#doswiadczenie">Doświadczenie</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-end">
@@ -47,7 +46,7 @@
     <a href="index.html#jak-dziala">Jak działa</a>
     <a href="index.html#funkcje">Funkcje</a>
     <a href="index.html#role">Role</a>
-    <a href="index.html#dla-kogo">Dla kogo</a>
+    <a href="index.html#doswiadczenie">Doświadczenie</a>
     <a href="index.html#faq">FAQ</a>
   </nav>
 </header>
@@ -56,14 +55,14 @@
   <div class="wrap join-grid">
 
     <aside class="join-aside">
-      <h1 class="rv">Rozpocznij z&nbsp;BIFOR</h1>
-      <p class="lead rv" style="--d:1">Prześlij podstawowe informacje o sobie i swojej organizacji. Skontaktujemy się z Tobą w sprawie uruchomienia konta BIFOR.</p>
+      <h1 class="rv">Umów prezentację</h1>
+      <p class="lead rv" style="--d:1">Zostaw kontakt i kilka informacji o swoim obiekcie. Odezwiemy się, pokażemy program na przykładowym wydarzeniu i omówimy uruchomienie.</p>
       <ol class="next rv" style="--d:2">
         <li><div>Wypełniasz formularz<small>wystarczą imię, nazwa obiektu i e-mail</small></div></li>
-        <li><div>Kontaktujemy się z Tobą<small>omawiamy, jak pracujecie przy wydarzeniach</small></div></li>
+        <li><div>Umawiamy prezentację<small>pokazujemy program i odpowiadamy na pytania</small></div></li>
         <li><div>Uruchamiamy BIFOR<small>konfiguracja sal, menu, cenników i zasad pracy</small></div></li>
       </ol>
-      <p class="cta-direct rv" style="--d:3">Wolisz porozmawiać? Zadzwoń: <a href="tel:+48510400388" data-track="phone_click" data-place="join">510 400 388</a></p>
+      <p class="cta-direct rv" style="--d:3">Wolisz porozmawiać? Zadzwoń: <a href="tel:+48510400388" data-track="phone_click" data-place="join">510 400 388</a> albo napisz: <a href="mailto:kontakt@bifor.pl" data-track="email_click" data-place="join">kontakt@bifor.pl</a></p>
       <div class="ph rv" style="--d:3"><img src="assets/img/avocado/sala-plenerowa.webp" alt="Sala plenerowa Restauracji Avocado z nakrytymi stołami" width="1400" height="933"></div>
     </aside>
 
@@ -99,7 +98,6 @@
               <div class="radios" role="radiogroup" aria-labelledby="role-lbl">
                 <div class="radio"><input type="radio" name="role" id="r1" value="wlasciciel_obiektu"><label for="r1">Właściciel / właścicielka obiektu</label></div>
                 <div class="radio"><input type="radio" name="role" id="r2" value="manager"><label for="r2">Manager / managerka</label></div>
-                <div class="radio"><input type="radio" name="role" id="r3" value="wedding_planner"><label for="r3">Wedding planner</label></div>
                 <div class="radio"><input type="radio" name="role" id="r4" value="event_manager"><label for="r4">Event manager</label></div>
                 <div class="radio"><input type="radio" name="role" id="r5" value="sprzedaz_organizacja"><label for="r5">Sprzedaż / organizacja wydarzeń</label></div>
                 <div class="radio"><input type="radio" name="role" id="r6" value="agencja_eventowa"><label for="r6">Agencja eventowa</label></div>
@@ -146,7 +144,7 @@
           <legend class="fs-h">Zgody</legend>
           <div class="fs-body">
             <div class="f full" id="consent-field">
-              <label class="consent"><input type="checkbox" id="consent_rodo" name="consent_rodo" required aria-describedby="consent_rodo-err"><span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zgłoszenia i kontaktu w sprawie uruchomienia konta BIFOR. Szczegóły w <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span class="req" aria-hidden="true">*</span></span></label>
+              <label class="consent"><input type="checkbox" id="consent_rodo" name="consent_rodo" required aria-describedby="consent_rodo-err"><span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zgłoszenia i kontaktu w sprawie prezentacji oraz uruchomienia BIFOR. Szczegóły w <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span class="req" aria-hidden="true">*</span></span></label>
               <span class="err" id="consent_rodo-err">Ta zgoda jest potrzebna, abyśmy mogli odpowiedzieć na zgłoszenie.</span>
             </div>
             <div class="f full">
@@ -164,8 +162,9 @@
 
       <div class="done" id="done" hidden tabindex="-1">
         <div class="ok"><svg><use href="#i-ok"/></svg></div>
-        <h2>Dziękujemy za zainteresowanie BIFOR.</h2>
-        <p>Otrzymaliśmy Twoje zgłoszenie. Skontaktujemy się z Tobą w sprawie uruchomienia konta i rozpoczęcia współpracy.</p>
+        <h2>Dziękujemy. Mamy Twoje zgłoszenie.</h2>
+        <p>Odezwiemy się, żeby umówić prezentację BIFOR. Jeśli wolisz nie czekać, zadzwoń: <a href="tel:+48510400388">510 400 388</a>.</p>
+        <p class="demo-note" id="demoNote" hidden>Podgląd strony: to zgłoszenie nie zostało nigdzie wysłane. Wysyłka działa na bifor.pl.</p>
         <div class="cta-row"><a class="btn btn-line" href="index.html">Wróć na stronę główną</a></div>
       </div>
     </div>
@@ -182,7 +181,7 @@
         <p class="ft-social"><a href="https://www.instagram.com/bifor.pl/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/biforpl" target="_blank" rel="noopener">Facebook</a></p>
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
-      <div><h4>Start</h4><ul><li><a href="dolacz.html">Rozpocznij z BIFOR</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="dolacz.html">Umów prezentację</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
       <div><h4>Informacje</h4><ul><li><a href="regulamin.html">Regulamin</a></li><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="polityka-prywatnosci.html#cookies">Polityka cookies</a></li></ul></div>
     </div>
     <div class="ft-bottom"><span>© 2026 BIFOR · TASTEGO sp. z o.o.</span><span><a href="mailto:kontakt@bifor.pl">kontakt@bifor.pl</a> · <a href="tel:+48510400388">510 400 388</a></span></div>

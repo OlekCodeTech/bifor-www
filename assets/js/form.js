@@ -1,11 +1,14 @@
-/* BIFOR — formularz „Rozpocznij z BIFOR”
-   Na razie tylko front: walidacja, antyspam, źródło wejścia, zdarzenia analityczne.
-   Wysyłka: ustaw FORM_ENDPOINT (POST JSON). Dopóki jest pusty, zgłoszenie
-   jest tylko wypisywane w konsoli, a użytkownik widzi komunikat o przyjęciu. */
+/* BIFOR — formularz „Umów prezentację”
+   Walidacja, antyspam, źródło wejścia, zdarzenia analityczne i wysyłka.
+   Na bifor.pl zgłoszenie odbiera send.php i wysyła je e-mailem na kontakt@bifor.pl.
+   Na podglądzie (GitHub Pages, localhost, plik z dysku) PHP nie działa, więc
+   formularz pracuje w trybie pokazowym: niczego nie wysyła i mówi o tym wprost. */
 (function () {
   'use strict';
 
-  var FORM_ENDPOINT = ''; // np. 'https://api.bifor.pl/leads' — do podpięcia
+  var LIVE = /(^|\.)bifor\.pl$/.test(location.hostname);
+  try { if (sessionStorage.getItem('bifor_force_send') === '1') LIVE = true; } catch (e) { /* test lokalny z PHP */ }
+  var FORM_ENDPOINT = LIVE ? 'send.php' : '';
   var MIN_FILL_MS = 3000; // szybciej wysyła tylko bot
 
   var form = document.getElementById('joinForm');
@@ -109,7 +112,7 @@
   function payload() {
     var data = {};
     Array.prototype.forEach.call(form.elements, function (el) {
-      if (!el.name || el.name === 'company_website') return;
+      if (!el.name) return;
       if (el.type === 'radio') { if (el.checked) data[el.name] = el.value; return; }
       if (el.type === 'checkbox') { data[el.name] = el.checked; return; }
       data[el.name] = el.value.trim();
@@ -127,6 +130,8 @@
 
   function success() {
     submitted = true;
+    var demo = document.getElementById('demoNote');
+    if (demo) demo.hidden = !!FORM_ENDPOINT;
     form.hidden = true;
     var done = document.getElementById('done');
     done.hidden = false;
@@ -162,7 +167,11 @@
 
     var send = FORM_ENDPOINT
       ? fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
+          .then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          })
+          .then(function (res) { if (!res || res.ok !== true) throw new Error('odpowiedź serwera'); })
       : new Promise(function (res) { console.info('[BIFOR] Zgłoszenie (brak FORM_ENDPOINT — nic nie wysłano):', data); setTimeout(res, 900); });
 
     send.then(function () {
@@ -170,7 +179,9 @@
       success();
     }).catch(function (err) {
       busy(false);
-      alertBox.textContent = 'Nie udało się wysłać zgłoszenia. Sprawdź połączenie z internetem i spróbuj ponownie.';
+      alertBox.textContent = /HTTP 429/.test(String(err && err.message))
+        ? 'Z tego adresu przyszło już kilka zgłoszeń. Spróbuj za godzinę albo zadzwoń: 510 400 388.'
+        : 'Nie udało się wysłać zgłoszenia. Spróbuj ponownie, napisz na kontakt@bifor.pl albo zadzwoń: 510 400 388.';
       alertBox.hidden = false;
       track('join_form_submit_failed', { reason: String(err && err.message || err) });
     });

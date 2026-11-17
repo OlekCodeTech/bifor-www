@@ -35,7 +35,7 @@ NAV_LINKS = [
     ("index.html#jak-dziala", "Jak działa"),
     ("index.html#funkcje", "Funkcje"),
     ("index.html#role", "Role"),
-    ("index.html#dla-kogo", "Dla kogo"),
+    ("index.html#doswiadczenie", "Doświadczenie"),
     ("index.html#faq", "FAQ"),
 ]
 
@@ -54,7 +54,7 @@ def footer(active):
         <p class="ft-social"><a href="https://www.instagram.com/bifor.pl/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/biforpl" target="_blank" rel="noopener">Facebook</a></p>
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
-      <div><h4>Start</h4><ul><li><a href="dolacz.html">Rozpocznij z BIFOR</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="dolacz.html">Umów prezentację</a></li><li><a href="index.html#doswiadczenie">Doświadczenie</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
       <div><h4>Informacje</h4><ul>{info('regulamin.html', 'Regulamin')}{info('polityka-prywatnosci.html', 'Polityka prywatności')}{info('polityka-prywatnosci.html#cookies', 'Polityka cookies')}</ul></div>
     </div>
     <div class="ft-bottom"><span>© 2026 BIFOR · TASTEGO sp. z o.o.</span><span><a href="mailto:kontakt@bifor.pl">kontakt@bifor.pl</a> · <a href="tel:+48510400388">510 400 388</a></span></div>
@@ -69,14 +69,13 @@ def shell(title, desc, body, active):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><!-- podgląd: usunąć przy starcie produkcji -->
+<meta name="robots" content="noindex, nofollow"><!-- podgląd: wersja produkcyjna (tools/build-prod.py) usuwa tę linię -->
 <title>{title} — BIFOR</title>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#6F5BD8">
 <link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -88,7 +87,7 @@ def shell(title, desc, body, active):
     <a href="index.html" class="logo" aria-label="BIFOR — strona główna"><img src="assets/img/logo/bifor-logo.svg" alt="BIFOR" width="104" height="27"></a>
     <nav class="nav-links" aria-label="Główna nawigacja">{nav}</nav>
     <div class="nav-end">
-      <a class="btn btn-primary btn-sm" href="dolacz.html">Rozpocznij z BIFOR</a>
+      <a class="btn btn-primary btn-sm" href="dolacz.html">Umów prezentację</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Otwórz menu"><span></span><span></span></button>
     </div>
   </div>
@@ -156,7 +155,6 @@ def main():
 <link rel="canonical" href="{target}">
 <meta http-equiv="refresh" content="0; url={target}">
 <link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>

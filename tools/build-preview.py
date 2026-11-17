@@ -120,7 +120,7 @@ router = """
 """
 
 css = read("assets/css/style.css") + "\n[id]{scroll-margin-top:88px}\n"
-js = "\n".join(read(f"assets/js/{n}.js") for n in ("main", "film", "form")) + router
+js = "\n".join(read(f"assets/js/{n}.js") for n in ("main", "form")) + router
 
 head = f"""<title>BIFOR</title>
 <meta name="description" content="BIFOR — wszystkie ustalenia wydarzenia w jednym miejscu. Podgląd strony.">

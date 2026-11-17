@@ -124,58 +124,19 @@
   }
 
   /* ---------- role ----------
-     Kto co widzi przy jednym przyjęciu — według tabeli uprawnień programu. */
+     Zakładki przełączają gotowe panele z ekranami programu (są w HTML). */
   var tabs = document.querySelectorAll('#roleTabs [role="tab"]');
   if (tabs.length) {
-    var SECTIONS = [
-      ['Ankieta', 'i-note'], ['Lista gości i rozsadzenie', 'i-users'], ['Menu i wycena', 'i-fork'],
-      ['Płatności', 'i-cash'], ['Harmonogram dnia', 'i-clock'], ['Pliki', 'i-doc'],
-      ['Notatka wewnętrzna i obsada', 'i-lock']
-    ];
-    // poziom: e = działa, v = widzi część, h = nie widzi; obok etykieta z programu
-    var ROLES = [
-      { av: 'MN', c: 'av-b', name: 'Magdalena Nowak', role: 'Manager · zespół sali',
-        a: [['e', 'Zatwierdza'], ['e', 'Pełny dostęp'], ['e', 'Wystawia wycenę'], ['e', 'Potwierdza wpłaty'], ['e', 'Układa'], ['e', 'Udostępnia'], ['e', 'Tylko zespół sali']],
-        foot: 'Zatwierdza ustalenia, wystawia wycenę i potwierdza wpłaty. Każda zmiana zostaje w historii.' },
-      { av: 'AK', c: 'av-g', name: 'Anna Kowalska', role: 'Zamawiająca',
-        a: [['e', 'Odpowiada'], ['e', 'Prowadzi'], ['e', 'Wybiera i akceptuje'], ['e', 'Zgłasza przelewy'], ['v', 'Swoja część'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
-        foot: 'Ma swoje wydarzenie na komputerze i w telefonie. Zmianę po terminie wysyła jako prośbę.' },
-      { av: 'KW', c: 'av-w', name: 'Karolina Wiśniewska', role: 'Współorganizatorka · świadkowa',
-        a: [['e', 'Odpowiada'], ['e', 'Prowadzi'], ['v', 'Tylko do wglądu'], ['h', 'Nie widzi'], ['v', 'Swoja część'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
-        foot: 'Pomaga przy ankiecie i liście gości. Płatności zostają po stronie zamawiającej.' },
-      { av: 'DJ', c: 'av-c', name: 'DJ Tomasz', role: 'Usługodawca · oprawa muzyczna',
-        a: [['v', 'Swoje pytania'], ['h', 'Tylko liczby gości'], ['h', 'Nie widzi'], ['h', 'Nie widzi'], ['v', 'Swoje punkty'], ['v', 'Udostępnione'], ['h', 'Nie widzi']],
-        foot: 'Widzi swoje pytania, swoje punkty dnia i swoją Kartę Realizacji. Listy gości i pieniędzy nie widzi.' },
-      { av: 'PS', c: 'av-b', name: 'Personel sali', role: 'Zespół sali',
-        a: [['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli'], ['v', 'Według roli']],
-        foot: 'Widzi tyle, ile daje mu rola w zespole. W dniu przyjęcia ma tryb dnia w telefonie.' }
-    ];
-    var LV = { e: 'lv-e', v: 'lv-v', h: 'lv-h' };
-    var COLOR = { e: 'var(--brand)', v: 'var(--ink-2)', h: 'var(--ink-3)' };
-    var acc = document.getElementById('rAcc');
-    var av = document.getElementById('rAv');
-
-    function showRole(i, focus) {
-      var r = ROLES[i];
+    var showRole = function (i, focus) {
       tabs.forEach(function (t, k) {
         var on = k === i;
         t.setAttribute('aria-selected', String(on));
         t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
       });
       if (focus) tabs[i].focus();
-      document.getElementById('rolePanel').setAttribute('aria-labelledby', 'rt' + i);
-      av.className = 'av ' + r.c; av.textContent = r.av;
-      document.getElementById('rName').textContent = r.name;
-      document.getElementById('rRole').textContent = r.role;
-      document.getElementById('rFoot').textContent = r.foot;
-      acc.innerHTML = SECTIONS.map(function (s, k) {
-        var lvl = r.a[k][0];
-        return '<li class="' + (lvl === 'h' ? 'hidden ' : '') + 'tick" style="animation-delay:' + (k * 30) + 'ms">' +
-          '<svg style="color:' + COLOR[lvl] + '"><use href="#' + s[1] + '"/></svg>' +
-          '<span class="nm">' + s[0] + '</span>' +
-          '<span class="lv ' + LV[lvl] + '">' + r.a[k][1] + '</span></li>';
-      }).join('');
-    }
+    };
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function () { showRole(i); track('role_view', { role: t.querySelector('b').textContent }); });
       t.addEventListener('keydown', function (e) {
@@ -187,8 +148,34 @@
         if (n !== null) { e.preventDefault(); showRole(n, true); }
       });
     });
-    showRole(0);
   }
+
+  /* ---------- powiększanie ekranów programu ---------- */
+  var lb = null;
+  function openShot(src, alt, mobileWidth) {
+    if (!window.HTMLDialogElement) { window.open(src, '_blank'); return; }
+    if (!lb) {
+      lb = document.createElement('dialog');
+      lb.className = 'lb';
+      lb.innerHTML = '<button class="lb-x" type="button" aria-label="Zamknij powiększenie">×</button>' +
+        '<p class="lb-hint" aria-hidden="true">Przesuwaj palcem, żeby zobaczyć cały ekran</p>' +
+        '<div class="lb-in"><img alt=""></div>';
+      document.body.appendChild(lb);
+      lb.addEventListener('click', function (e) { if (e.target.tagName !== 'IMG') lb.close(); });
+    }
+    var im = lb.querySelector('img');
+    im.src = src; im.alt = alt || '';
+    im.style.setProperty('--zw', (mobileWidth || 920) + 'px'); // szerokość na telefonie: tyle, żeby tekst dało się czytać
+    lb.showModal();
+    lb.querySelector('.lb-in').scrollTo(0, 0);
+  }
+  document.querySelectorAll('.shot[data-zoom]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var img = b.querySelector('img');
+      openShot(b.getAttribute('data-zoom'), img ? img.alt : '', +b.getAttribute('data-zoom-w') || 0);
+      track('screen_zoom', { screen: b.getAttribute('data-zoom').split('/').pop() });
+    });
+  });
 
   /* ---------- FAQ: zdarzenie otwarcia ---------- */
   document.querySelectorAll('.qa details').forEach(function (d) {
