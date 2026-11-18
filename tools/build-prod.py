@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 SITE = "https://bifor.pl"
 PREVIEW = "https://olekcodetech.github.io/bifor-www"
+# klucz IndexNow (Bing i inne wyszukiwarki): plik <klucz>.txt w katalogu głównym potwierdza, że zgłoszenia adresów są nasze
+INDEXNOW_KEY = "7a2395e199512a72f27f268166180e9c"
 
 # strona -> adres kanoniczny (None = strona techniczna, zostaje poza indeksem)
 PAGES = {
@@ -113,7 +115,17 @@ def version_of(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()[:8]
 
 
-def schema():
+def faq_items(html):
+    """Pytania i odpowiedzi z sekcji FAQ strony głównej — do danych strukturalnych."""
+    items = []
+    for q, a in re.findall(r"<details[^>]*><summary>(.*?)<i></i></summary><div class=\"ans\">(.*?)</div></details>", html, re.S):
+        text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", a)).strip()
+        items.append({"@type": "Question", "name": q.strip(), "acceptedAnswer": {"@type": "Answer", "text": text}})
+    assert len(items) >= 8, "nie znalazłem pytań FAQ na stronie głównej"
+    return items
+
+
+def schema(html):
     data = {
         "@context": "https://schema.org",
         "@graph": [
@@ -128,6 +140,15 @@ def schema():
                 "telephone": "+48510400388",
                 "sameAs": ["https://www.instagram.com/bifor.pl/", "https://www.facebook.com/biforpl"],
             },
+            {
+                "@type": "WebSite",
+                "@id": SITE + "/#strona",
+                "url": SITE + "/",
+                "name": "BIFOR",
+                "inLanguage": "pl-PL",
+                "publisher": {"@id": SITE + "/#organizacja"},
+            },
+            {"@type": "FAQPage", "@id": SITE + "/#faq", "mainEntity": faq_items(html)},
             {
                 "@type": "SoftwareApplication",
                 "name": "BIFOR",
@@ -161,7 +182,7 @@ def build_page(name, canonical, versions):
     for ref, v in versions.items():
         html = html.replace(f'"{ref}"', f'"{ref}?v={v}"')
     if name == "index.html":
-        html = html.replace("</head>", schema() + "\n</head>", 1)
+        html = html.replace("</head>", schema(html) + "\n</head>", 1)
     return html
 
 
@@ -201,6 +222,9 @@ def main():
         shutil.copyfile(ROOT / r, dst)
 
     shutil.copyfile(ROOT / "send.php", DIST / "send.php")
+    (DIST / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY, encoding="utf-8")
+    # przeglądarki i Google pytają o /favicon.ico w katalogu głównym
+    shutil.copyfile(ROOT / "assets" / "img" / "logo" / "favicon.ico", DIST / "favicon.ico")
     (DIST / ".htaccess").write_text(HTACCESS, encoding="utf-8", newline="\n")
     (DIST / "404.html").write_text(NOT_FOUND.replace("{v}", "?v=" + versions["assets/css/style.css"]), encoding="utf-8")
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /send.php\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")

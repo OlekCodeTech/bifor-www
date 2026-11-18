@@ -16,6 +16,9 @@ SRC = ROOT / "content" / "legal"
 # zamieniamy na zwykły tekst, żeby na stronie nie było martwych linków
 MISSING_DOCS = ("03_Umowa_powierzenia.html", "04_Informacja_sali_o_danych.html")
 
+# data wejścia w życie obu dokumentów — podana przez klienta 18.11.2026
+EFFECTIVE_DATE = "17.11.2026"
+
 PAGES = [
     {
         "src": "01_Regulamin_Bifor.html",
@@ -74,6 +77,8 @@ def shell(title, desc, body, active):
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#6F5BD8">
 <link rel="icon" href="assets/img/logo/bifor-sygnet.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/logo/bifor-ikona-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/logo/bifor-ikona-180.png">
 <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
@@ -123,6 +128,10 @@ def convert(path):
             body,
             flags=re.S,
         )
+
+    # pole z datą: klient zostawił w dokumencie znacznik do uzupełnienia
+    assert body.count('<span class="field">{{effective_date}}</span>') == 1, "nie ma pola z datą"
+    body = body.replace('<span class="field">{{effective_date}}</span>', EFFECTIVE_DATE)
 
     # pierwszy nagłówek dokumentu to tytuł strony
     body = body.replace("<h1>", '<h1 class="legal-h1">', 1)
