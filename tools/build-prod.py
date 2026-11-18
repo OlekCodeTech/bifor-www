@@ -43,13 +43,15 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 
 # --- HTTPS i jedna wersja adresu (bez www) ---
-# Włączyć dopiero, gdy certyfikat SSL działa dla bifor.pl i www.bifor.pl
-# (inaczej strona przestanie się otwierać). Wystarczy usunąć znaki # poniżej.
-#RewriteCond %{HTTPS} !=on
-#RewriteCond %{HTTP:X-Forwarded-Proto} !https
-#RewriteRule ^ https://bifor.pl%{REQUEST_URI} [R=301,L]
-#RewriteCond %{HTTP_HOST} ^www\.bifor\.pl$ [NC]
-#RewriteRule ^ https://bifor.pl%{REQUEST_URI} [R=301,L]
+# Certyfikaty Let's Encrypt dla bifor.pl i www.bifor.pl działają od 18.11.2026.
+# Przekierowanie rusza tylko wtedy, gdy wszystkie trzy znaki mówią „to nie jest https”
+# — dzięki temu nie zapętli się, nawet jeśli serwer podaje tylko część z nich.
+RewriteCond %{SERVER_PORT} ^80$
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://bifor.pl%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.bifor\.pl$ [NC]
+RewriteRule ^ https://bifor.pl%{REQUEST_URI} [R=301,L]
 
 # krótkie adresy
 RewriteRule ^(dolacz|kontakt|prezentacja)/?$ /dolacz.html [R=301,L]
