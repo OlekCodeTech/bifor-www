@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 SITE = "https://bifor.pl"
 PREVIEW = "https://olekcodetech.github.io/bifor-www"
+# plik potwierdzający własność witryny w Google Search Console (nie usuwać — bez niego weryfikacja wygasa)
+GOOGLE_VERIFICATION = "google96e0791bcf3ff8f5.html"
 # klucz IndexNow (Bing i inne wyszukiwarki): plik <klucz>.txt w katalogu głównym potwierdza, że zgłoszenia adresów są nasze
 INDEXNOW_KEY = "7a2395e199512a72f27f268166180e9c"
 
@@ -223,6 +225,7 @@ def main():
 
     shutil.copyfile(ROOT / "send.php", DIST / "send.php")
     (DIST / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY, encoding="utf-8")
+    (DIST / GOOGLE_VERIFICATION).write_text("google-site-verification: " + GOOGLE_VERIFICATION, encoding="utf-8")
     # przeglądarki i Google pytają o /favicon.ico w katalogu głównym
     shutil.copyfile(ROOT / "assets" / "img" / "logo" / "favicon.ico", DIST / "favicon.ico")
     (DIST / ".htaccess").write_text(HTACCESS, encoding="utf-8", newline="\n")
