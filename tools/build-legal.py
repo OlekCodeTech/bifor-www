@@ -58,7 +58,7 @@ def footer(active):
       </div>
       <div><h4>Produkt</h4><ul><li><a href="index.html#jak-dziala">Jak działa</a></li><li><a href="index.html#funkcje">Funkcje</a></li><li><a href="index.html#role">Role</a></li><li><a href="index.html#realizacja">Realizacja</a></li></ul></div>
       <div><h4>Start</h4><ul><li><a href="dolacz.html">Umów prezentację</a></li><li><a href="index.html#doswiadczenie">Doświadczenie</a></li><li><a href="index.html#dla-kogo">Dla kogo</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
-      <div><h4>Informacje</h4><ul>{info('regulamin.html', 'Regulamin')}{info('polityka-prywatnosci.html', 'Polityka prywatności')}{info('polityka-prywatnosci.html#cookies', 'Polityka cookies')}</ul></div>
+      <div><h4>Informacje</h4><ul>{info('regulamin.html', 'Regulamin')}{info('polityka-prywatnosci.html', 'Polityka prywatności')}{info('polityka-prywatnosci.html#cookies', 'Polityka cookies')}<li><a href="#" data-consent-open>Ustawienia cookies</a></li></ul></div>
     </div>
     <div class="ft-bottom"><span>© 2026 BIFOR · TASTEGO sp. z o.o.</span><span><a href="mailto:kontakt@bifor.pl">kontakt@bifor.pl</a> · <a href="tel:+48510400388">510 400 388</a></span></div>
   </div>
@@ -107,6 +107,7 @@ def shell(title, desc, body, active):
 
 {footer(active)}
 <script src="assets/js/main.js"></script>
+<script src="assets/js/consent.js"></script>
 </body>
 </html>
 """
