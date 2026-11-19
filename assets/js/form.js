@@ -176,6 +176,7 @@
 
     send.then(function () {
       track('join_form_submit_success', { role: data.role, source: data.utm_source || data.referrer || 'direct', events_per_year: data.events_per_year || '' });
+      if (FORM_ENDPOINT && window.biforLead) window.biforLead(); // piksel Meta: tylko po zgodzie i po prawdziwej wysyłce
       success();
     }).catch(function (err) {
       busy(false);

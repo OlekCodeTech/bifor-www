@@ -583,6 +583,17 @@ button{font:inherit; color:inherit}
   .legal .toc{padding:18px}
 }
 
+/* baner zgody na cookies reklamowe */
+.cb{position:fixed; left:16px; right:16px; bottom:16px; z-index:150; max-width:760px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px 28px; align-items:center; padding:20px 22px; background:#fff; border:1px solid var(--line-2); border-radius:14px; box-shadow:0 24px 60px -24px rgba(30,26,48,.45)}
+.cb b{display:block; font-weight:500; font-size:16px; color:var(--ink); margin-bottom:4px}
+.cb p{font-size:14px; line-height:1.5; color:var(--ink-2)}
+.cb a{color:var(--brand); text-underline-offset:3px; white-space:nowrap}
+.cb-btns{display:flex; gap:10px}
+@media (max-width:700px){
+  .cb{grid-template-columns:1fr; left:10px; right:10px; bottom:10px; padding:16px}
+  .cb-btns .btn{flex:1}
+}
+
 /* ruch ograniczony */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
