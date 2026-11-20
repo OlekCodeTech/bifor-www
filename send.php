@@ -11,8 +11,6 @@ const MAIL_FROM   = 'kontakt@bifor.pl';   // skrzynka w domenie strony — inacz
 const RATE_MAX    = 5;                    // tyle zgłoszeń z jednego IP…
 const RATE_WINDOW = 3600;                 // …w ciągu godziny
 const MIN_FILL_S  = 3;                    // szybciej wypełnia tylko bot
-// TYMCZASOWE (test dostarczalności 20.11.2026): skrót klucza, który pozwala wysłać zgłoszenie na adres testowy
-const TEST_KEY_SHA256 = 'c100e1ac16a39e47d05cf40397f75fbdc4c30ee737d74fd1f829c5571e4a68fc';
 
 date_default_timezone_set('Europe/Warsaw');
 
@@ -62,14 +60,6 @@ $d   = json_decode($raw === false ? '' : $raw, true);
 if (!is_array($d)) {
     out(400, ['ok' => false, 'error' => 'json']);
 }
-
-// TYMCZASOWE: test dostarczalności — ta sama wiadomość na adres podany razem z poprawnym kluczem
-$testTo = null;
-if (isset($d['_test_to'], $d['_test_key']) && is_string($d['_test_to']) && is_string($d['_test_key'])
-    && hash_equals(TEST_KEY_SHA256, hash('sha256', $d['_test_key'])) && filter_var($d['_test_to'], FILTER_VALIDATE_EMAIL)) {
-    $testTo = $d['_test_to'];
-}
-$mailTo = $testTo ?? MAIL_TO;
 
 // pułapka na boty: udajemy sukces, nic nie wysyłamy
 if (!empty($d['company_website']) || (int) ($d['fill_seconds'] ?? 0) < MIN_FILL_S) {
@@ -182,7 +172,7 @@ $dry = getenv('BIFOR_MAIL_DRYRUN');
 if (is_string($dry) && $dry !== '') {
     $sent = @file_put_contents($dry, "To: " . MAIL_TO . "\nSubject: " . $subject . "\n" . $headers . "\n\n" . $body) !== false;
 } else {
-    $sent = @mail($mailTo, header_text($subject), $encoded, $headers, '-f' . MAIL_FROM);
+    $sent = @mail(MAIL_TO, header_text($subject), $encoded, $headers, '-f' . MAIL_FROM);
 }
 
 if (!$sent) {
